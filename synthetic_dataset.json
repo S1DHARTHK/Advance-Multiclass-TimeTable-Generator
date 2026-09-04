@@ -1,0 +1,7188 @@
+{
+  "meta": {
+    "generator": "synthetic_data.py",
+    "version": "v1",
+    "seed": 20250904,
+    "description": "Synthetic multi-class timetable dataset (no GA, database or API dependencies)."
+  },
+  "config": {
+    "seed": 20250904,
+    "academic_year": {
+      "name": "2025-2026",
+      "start_date": "2025-06-02",
+      "end_date": "2026-03-31"
+    },
+    "num_classes": 10,
+    "supported_class_range": [
+      8,
+      12
+    ],
+    "students_per_class": [
+      38,
+      52
+    ],
+    "working_days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "periods": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "periods_before_lunch": [
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "lunch_after_period": "P4",
+    "period_priority": {
+      "P1": 7,
+      "P2": 9,
+      "P3": 9,
+      "P4": 8,
+      "P5": 6,
+      "P6": 8,
+      "P7": 5
+    },
+    "second_language_periods": 4,
+    "second_language_popularity": {
+      "Malayalam": 0.45,
+      "Hindi": 0.3,
+      "Sanskrit": 0.15,
+      "French": 0.1
+    },
+    "max_language_group_size": 45,
+    "teacher_max_weekly_periods": [
+      20,
+      26
+    ],
+    "teacher_unavailable_slots": [
+      0,
+      3
+    ],
+    "min_teachers_per_department": 1,
+    "extra_teachers_per_department": 0,
+    "max_assignment_attempts": 30
+  },
+  "academic_year": {
+    "academic_year_id": "AY-01",
+    "name": "2025-2026",
+    "start_date": "2025-06-02",
+    "end_date": "2026-03-31"
+  },
+  "timetable_structure": {
+    "working_days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "periods": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "periods_before_lunch": [
+      "P1",
+      "P2",
+      "P3",
+      "P4"
+    ],
+    "periods_after_lunch": [
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "lunch_after_period": "P4",
+    "lunch_is_a_period": false,
+    "periods_per_day": 7,
+    "total_weekly_slots": 35,
+    "period_priority": {
+      "P1": 7,
+      "P2": 9,
+      "P3": 9,
+      "P4": 8,
+      "P5": 6,
+      "P6": 8,
+      "P7": 5
+    },
+    "slots": [
+      {
+        "slot_id": "SLOT-01",
+        "day": "Monday",
+        "period": "P1",
+        "priority": 7
+      },
+      {
+        "slot_id": "SLOT-02",
+        "day": "Monday",
+        "period": "P2",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-03",
+        "day": "Monday",
+        "period": "P3",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-04",
+        "day": "Monday",
+        "period": "P4",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-05",
+        "day": "Monday",
+        "period": "P5",
+        "priority": 6
+      },
+      {
+        "slot_id": "SLOT-06",
+        "day": "Monday",
+        "period": "P6",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-07",
+        "day": "Monday",
+        "period": "P7",
+        "priority": 5
+      },
+      {
+        "slot_id": "SLOT-08",
+        "day": "Tuesday",
+        "period": "P1",
+        "priority": 7
+      },
+      {
+        "slot_id": "SLOT-09",
+        "day": "Tuesday",
+        "period": "P2",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-10",
+        "day": "Tuesday",
+        "period": "P3",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-11",
+        "day": "Tuesday",
+        "period": "P4",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-12",
+        "day": "Tuesday",
+        "period": "P5",
+        "priority": 6
+      },
+      {
+        "slot_id": "SLOT-13",
+        "day": "Tuesday",
+        "period": "P6",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-14",
+        "day": "Tuesday",
+        "period": "P7",
+        "priority": 5
+      },
+      {
+        "slot_id": "SLOT-15",
+        "day": "Wednesday",
+        "period": "P1",
+        "priority": 7
+      },
+      {
+        "slot_id": "SLOT-16",
+        "day": "Wednesday",
+        "period": "P2",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-17",
+        "day": "Wednesday",
+        "period": "P3",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-18",
+        "day": "Wednesday",
+        "period": "P4",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-19",
+        "day": "Wednesday",
+        "period": "P5",
+        "priority": 6
+      },
+      {
+        "slot_id": "SLOT-20",
+        "day": "Wednesday",
+        "period": "P6",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-21",
+        "day": "Wednesday",
+        "period": "P7",
+        "priority": 5
+      },
+      {
+        "slot_id": "SLOT-22",
+        "day": "Thursday",
+        "period": "P1",
+        "priority": 7
+      },
+      {
+        "slot_id": "SLOT-23",
+        "day": "Thursday",
+        "period": "P2",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-24",
+        "day": "Thursday",
+        "period": "P3",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-25",
+        "day": "Thursday",
+        "period": "P4",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-26",
+        "day": "Thursday",
+        "period": "P5",
+        "priority": 6
+      },
+      {
+        "slot_id": "SLOT-27",
+        "day": "Thursday",
+        "period": "P6",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-28",
+        "day": "Thursday",
+        "period": "P7",
+        "priority": 5
+      },
+      {
+        "slot_id": "SLOT-29",
+        "day": "Friday",
+        "period": "P1",
+        "priority": 7
+      },
+      {
+        "slot_id": "SLOT-30",
+        "day": "Friday",
+        "period": "P2",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-31",
+        "day": "Friday",
+        "period": "P3",
+        "priority": 9
+      },
+      {
+        "slot_id": "SLOT-32",
+        "day": "Friday",
+        "period": "P4",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-33",
+        "day": "Friday",
+        "period": "P5",
+        "priority": 6
+      },
+      {
+        "slot_id": "SLOT-34",
+        "day": "Friday",
+        "period": "P6",
+        "priority": 8
+      },
+      {
+        "slot_id": "SLOT-35",
+        "day": "Friday",
+        "period": "P7",
+        "priority": 5
+      }
+    ]
+  },
+  "subjects": [
+    {
+      "subject_id": "SUB-01",
+      "name": "English",
+      "type": "language",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "English"
+    },
+    {
+      "subject_id": "SUB-02",
+      "name": "Second Language",
+      "type": "language",
+      "is_second_language": true,
+      "is_language_slot": true,
+      "department": null
+    },
+    {
+      "subject_id": "SUB-03",
+      "name": "Malayalam",
+      "type": "language",
+      "is_second_language": true,
+      "is_language_slot": false,
+      "department": "Malayalam"
+    },
+    {
+      "subject_id": "SUB-04",
+      "name": "Hindi",
+      "type": "language",
+      "is_second_language": true,
+      "is_language_slot": false,
+      "department": "Hindi"
+    },
+    {
+      "subject_id": "SUB-05",
+      "name": "Sanskrit",
+      "type": "language",
+      "is_second_language": true,
+      "is_language_slot": false,
+      "department": "Sanskrit"
+    },
+    {
+      "subject_id": "SUB-06",
+      "name": "French",
+      "type": "language",
+      "is_second_language": true,
+      "is_language_slot": false,
+      "department": "French"
+    },
+    {
+      "subject_id": "SUB-07",
+      "name": "Physics",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Physics"
+    },
+    {
+      "subject_id": "SUB-08",
+      "name": "Chemistry",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Chemistry"
+    },
+    {
+      "subject_id": "SUB-09",
+      "name": "Mathematics",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Mathematics"
+    },
+    {
+      "subject_id": "SUB-10",
+      "name": "Biology",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Biology"
+    },
+    {
+      "subject_id": "SUB-11",
+      "name": "Computer Science",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Computer Science"
+    },
+    {
+      "subject_id": "SUB-12",
+      "name": "Computer Application",
+      "type": "elective",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Computer Science"
+    },
+    {
+      "subject_id": "SUB-13",
+      "name": "Business Studies",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Commerce"
+    },
+    {
+      "subject_id": "SUB-14",
+      "name": "Accountancy",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Commerce"
+    },
+    {
+      "subject_id": "SUB-15",
+      "name": "Economics",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Economics"
+    },
+    {
+      "subject_id": "SUB-16",
+      "name": "History",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Social Science"
+    },
+    {
+      "subject_id": "SUB-17",
+      "name": "Political Science",
+      "type": "core",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Social Science"
+    },
+    {
+      "subject_id": "SUB-18",
+      "name": "Sociology",
+      "type": "elective",
+      "is_second_language": false,
+      "is_language_slot": false,
+      "department": "Social Science"
+    }
+  ],
+  "second_language_options": [
+    {
+      "subject_id": "SUB-06",
+      "name": "French",
+      "weekly_periods": 4,
+      "popularity_weight": 0.1
+    },
+    {
+      "subject_id": "SUB-04",
+      "name": "Hindi",
+      "weekly_periods": 4,
+      "popularity_weight": 0.3
+    },
+    {
+      "subject_id": "SUB-03",
+      "name": "Malayalam",
+      "weekly_periods": 4,
+      "popularity_weight": 0.45
+    },
+    {
+      "subject_id": "SUB-05",
+      "name": "Sanskrit",
+      "weekly_periods": 4,
+      "popularity_weight": 0.15
+    }
+  ],
+  "classes": [
+    {
+      "class_id": "CLS-01",
+      "name": "+2 Science (Computer Science) - A",
+      "section": "A",
+      "stream": "science_cs",
+      "stream_label": "Science (Computer Science)",
+      "student_strength": 51,
+      "class_teacher_id": "TCH-03"
+    },
+    {
+      "class_id": "CLS-02",
+      "name": "+2 Science (Biology) - A",
+      "section": "A",
+      "stream": "science_bio",
+      "stream_label": "Science (Biology)",
+      "student_strength": 48,
+      "class_teacher_id": "TCH-11"
+    },
+    {
+      "class_id": "CLS-03",
+      "name": "+2 Commerce - A",
+      "section": "A",
+      "stream": "commerce",
+      "stream_label": "Commerce",
+      "student_strength": 39,
+      "class_teacher_id": "TCH-09"
+    },
+    {
+      "class_id": "CLS-04",
+      "name": "+2 Humanities - A",
+      "section": "A",
+      "stream": "humanities",
+      "stream_label": "Humanities",
+      "student_strength": 46,
+      "class_teacher_id": "TCH-08"
+    },
+    {
+      "class_id": "CLS-05",
+      "name": "+2 Science (Computer Science) - B",
+      "section": "B",
+      "stream": "science_cs",
+      "stream_label": "Science (Computer Science)",
+      "student_strength": 43,
+      "class_teacher_id": "TCH-07"
+    },
+    {
+      "class_id": "CLS-06",
+      "name": "+2 Science (Biology) - B",
+      "section": "B",
+      "stream": "science_bio",
+      "stream_label": "Science (Biology)",
+      "student_strength": 47,
+      "class_teacher_id": "TCH-12"
+    },
+    {
+      "class_id": "CLS-07",
+      "name": "+2 Commerce - B",
+      "section": "B",
+      "stream": "commerce",
+      "stream_label": "Commerce",
+      "student_strength": 41,
+      "class_teacher_id": "TCH-05"
+    },
+    {
+      "class_id": "CLS-08",
+      "name": "+2 Humanities - B",
+      "section": "B",
+      "stream": "humanities",
+      "stream_label": "Humanities",
+      "student_strength": 49,
+      "class_teacher_id": "TCH-22"
+    },
+    {
+      "class_id": "CLS-09",
+      "name": "+2 Science (Computer Science) - C",
+      "section": "C",
+      "stream": "science_cs",
+      "stream_label": "Science (Computer Science)",
+      "student_strength": 42,
+      "class_teacher_id": "TCH-20"
+    },
+    {
+      "class_id": "CLS-10",
+      "name": "+2 Science (Biology) - C",
+      "section": "C",
+      "stream": "science_bio",
+      "stream_label": "Science (Biology)",
+      "student_strength": 38,
+      "class_teacher_id": "TCH-02"
+    }
+  ],
+  "students": [
+    {
+      "student_id": "STU-0001",
+      "name": "Kavya Mohan",
+      "class_id": "CLS-01",
+      "roll_no": 1,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0002",
+      "name": "Bhavana Sasidharan",
+      "class_id": "CLS-01",
+      "roll_no": 2,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0003",
+      "name": "Nandana Sasidharan",
+      "class_id": "CLS-01",
+      "roll_no": 3,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0004",
+      "name": "Parvathy Bhaskaran",
+      "class_id": "CLS-01",
+      "roll_no": 4,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0005",
+      "name": "Lakshmi Mathew",
+      "class_id": "CLS-01",
+      "roll_no": 5,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0006",
+      "name": "Divya Suresh",
+      "class_id": "CLS-01",
+      "roll_no": 6,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0007",
+      "name": "Bhavana Mathew",
+      "class_id": "CLS-01",
+      "roll_no": 7,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0008",
+      "name": "Nikhil Mohan",
+      "class_id": "CLS-01",
+      "roll_no": 8,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0009",
+      "name": "Manu Kurup",
+      "class_id": "CLS-01",
+      "roll_no": 9,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0010",
+      "name": "Arun Pillai",
+      "class_id": "CLS-01",
+      "roll_no": 10,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0011",
+      "name": "Harikrishnan Sasidharan",
+      "class_id": "CLS-01",
+      "roll_no": 11,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0012",
+      "name": "Athira Thomas",
+      "class_id": "CLS-01",
+      "roll_no": 12,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0013",
+      "name": "Lakshmi Das",
+      "class_id": "CLS-01",
+      "roll_no": 13,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0014",
+      "name": "Fathima Bhaskaran",
+      "class_id": "CLS-01",
+      "roll_no": 14,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0015",
+      "name": "Rahul Menon",
+      "class_id": "CLS-01",
+      "roll_no": 15,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0016",
+      "name": "Rahul Krishnan",
+      "class_id": "CLS-01",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0017",
+      "name": "Vivek Krishnan",
+      "class_id": "CLS-01",
+      "roll_no": 17,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0018",
+      "name": "Harikrishnan Das",
+      "class_id": "CLS-01",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0019",
+      "name": "Lakshmi Das",
+      "class_id": "CLS-01",
+      "roll_no": 19,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0020",
+      "name": "Jithin Bhaskaran",
+      "class_id": "CLS-01",
+      "roll_no": 20,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0021",
+      "name": "Fathima Joseph",
+      "class_id": "CLS-01",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0022",
+      "name": "Nithya Joseph",
+      "class_id": "CLS-01",
+      "roll_no": 22,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0023",
+      "name": "Vishnu Bhaskaran",
+      "class_id": "CLS-01",
+      "roll_no": 23,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0024",
+      "name": "Bhavana Joseph",
+      "class_id": "CLS-01",
+      "roll_no": 24,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0025",
+      "name": "Divya Suresh",
+      "class_id": "CLS-01",
+      "roll_no": 25,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0026",
+      "name": "Divya Kurup",
+      "class_id": "CLS-01",
+      "roll_no": 26,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0027",
+      "name": "Meera Mathew",
+      "class_id": "CLS-01",
+      "roll_no": 27,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0028",
+      "name": "Gopika Chandran",
+      "class_id": "CLS-01",
+      "roll_no": 28,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0029",
+      "name": "Lakshmi Raj",
+      "class_id": "CLS-01",
+      "roll_no": 29,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0030",
+      "name": "Bhavana Thomas",
+      "class_id": "CLS-01",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0031",
+      "name": "Nikhil Mathew",
+      "class_id": "CLS-01",
+      "roll_no": 31,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0032",
+      "name": "Praveen Chandran",
+      "class_id": "CLS-01",
+      "roll_no": 32,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0033",
+      "name": "Nikhil Nair",
+      "class_id": "CLS-01",
+      "roll_no": 33,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0034",
+      "name": "Arun Kurup",
+      "class_id": "CLS-01",
+      "roll_no": 34,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0035",
+      "name": "Deepak Das",
+      "class_id": "CLS-01",
+      "roll_no": 35,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0036",
+      "name": "Devika Varma",
+      "class_id": "CLS-01",
+      "roll_no": 36,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0037",
+      "name": "Athira Kurup",
+      "class_id": "CLS-01",
+      "roll_no": 37,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0038",
+      "name": "Lakshmi George",
+      "class_id": "CLS-01",
+      "roll_no": 38,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0039",
+      "name": "Rahul Raj",
+      "class_id": "CLS-01",
+      "roll_no": 39,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0040",
+      "name": "Nandana Pillai",
+      "class_id": "CLS-01",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0041",
+      "name": "Divya George",
+      "class_id": "CLS-01",
+      "roll_no": 41,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0042",
+      "name": "Sreejith Thomas",
+      "class_id": "CLS-01",
+      "roll_no": 42,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0043",
+      "name": "Rohit Raj",
+      "class_id": "CLS-01",
+      "roll_no": 43,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0044",
+      "name": "Athira Mathew",
+      "class_id": "CLS-01",
+      "roll_no": 44,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0045",
+      "name": "Meera Unnikrishnan",
+      "class_id": "CLS-01",
+      "roll_no": 45,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0046",
+      "name": "Gopika Chandran",
+      "class_id": "CLS-01",
+      "roll_no": 46,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0047",
+      "name": "Lakshmi Joseph",
+      "class_id": "CLS-01",
+      "roll_no": 47,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0048",
+      "name": "Kavya Raj",
+      "class_id": "CLS-01",
+      "roll_no": 48,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0049",
+      "name": "Indu Menon",
+      "class_id": "CLS-01",
+      "roll_no": 49,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0050",
+      "name": "Rohit Pillai",
+      "class_id": "CLS-01",
+      "roll_no": 50,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0051",
+      "name": "Harikrishnan George",
+      "class_id": "CLS-01",
+      "roll_no": 51,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0052",
+      "name": "Gopika Pillai",
+      "class_id": "CLS-02",
+      "roll_no": 1,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0053",
+      "name": "Devika Pillai",
+      "class_id": "CLS-02",
+      "roll_no": 2,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0054",
+      "name": "Deepak Sasidharan",
+      "class_id": "CLS-02",
+      "roll_no": 3,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0055",
+      "name": "Kavya Nair",
+      "class_id": "CLS-02",
+      "roll_no": 4,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0056",
+      "name": "Rahul Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 5,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0057",
+      "name": "Fathima Unnikrishnan",
+      "class_id": "CLS-02",
+      "roll_no": 6,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0058",
+      "name": "Jithin Unnikrishnan",
+      "class_id": "CLS-02",
+      "roll_no": 7,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0059",
+      "name": "Deepak Menon",
+      "class_id": "CLS-02",
+      "roll_no": 8,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0060",
+      "name": "Gopika Unnikrishnan",
+      "class_id": "CLS-02",
+      "roll_no": 9,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0061",
+      "name": "Parvathy Kurup",
+      "class_id": "CLS-02",
+      "roll_no": 10,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0062",
+      "name": "Reshma Kurup",
+      "class_id": "CLS-02",
+      "roll_no": 11,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0063",
+      "name": "Reshma Thomas",
+      "class_id": "CLS-02",
+      "roll_no": 12,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0064",
+      "name": "Deepak Bhaskaran",
+      "class_id": "CLS-02",
+      "roll_no": 13,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0065",
+      "name": "Lakshmi Mathew",
+      "class_id": "CLS-02",
+      "roll_no": 14,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0066",
+      "name": "Lakshmi Raj",
+      "class_id": "CLS-02",
+      "roll_no": 15,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0067",
+      "name": "Sneha Raj",
+      "class_id": "CLS-02",
+      "roll_no": 16,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0068",
+      "name": "Sneha Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 17,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0069",
+      "name": "Aiswarya Suresh",
+      "class_id": "CLS-02",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0070",
+      "name": "Nandana Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 19,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0071",
+      "name": "Fathima Raj",
+      "class_id": "CLS-02",
+      "roll_no": 20,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0072",
+      "name": "Harikrishnan Mohan",
+      "class_id": "CLS-02",
+      "roll_no": 21,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0073",
+      "name": "Manu Mohan",
+      "class_id": "CLS-02",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0074",
+      "name": "Rahul Sasidharan",
+      "class_id": "CLS-02",
+      "roll_no": 23,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0075",
+      "name": "Kavya Bhaskaran",
+      "class_id": "CLS-02",
+      "roll_no": 24,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0076",
+      "name": "Praveen Varma",
+      "class_id": "CLS-02",
+      "roll_no": 25,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0077",
+      "name": "Parvathy Raj",
+      "class_id": "CLS-02",
+      "roll_no": 26,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0078",
+      "name": "Rahul Unnikrishnan",
+      "class_id": "CLS-02",
+      "roll_no": 27,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0079",
+      "name": "Parvathy Raj",
+      "class_id": "CLS-02",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0080",
+      "name": "Anjali Raj",
+      "class_id": "CLS-02",
+      "roll_no": 29,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0081",
+      "name": "Sujith Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0082",
+      "name": "Anjali Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 31,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0083",
+      "name": "Aiswarya Chandran",
+      "class_id": "CLS-02",
+      "roll_no": 32,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0084",
+      "name": "Sreejith Thomas",
+      "class_id": "CLS-02",
+      "roll_no": 33,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0085",
+      "name": "Manu Raj",
+      "class_id": "CLS-02",
+      "roll_no": 34,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0086",
+      "name": "Indu Raj",
+      "class_id": "CLS-02",
+      "roll_no": 35,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0087",
+      "name": "Arun Thomas",
+      "class_id": "CLS-02",
+      "roll_no": 36,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0088",
+      "name": "Aiswarya Chandran",
+      "class_id": "CLS-02",
+      "roll_no": 37,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0089",
+      "name": "Arun George",
+      "class_id": "CLS-02",
+      "roll_no": 38,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0090",
+      "name": "Sandeep Krishnan",
+      "class_id": "CLS-02",
+      "roll_no": 39,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0091",
+      "name": "Nikhil Raj",
+      "class_id": "CLS-02",
+      "roll_no": 40,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0092",
+      "name": "Sneha Krishnan",
+      "class_id": "CLS-02",
+      "roll_no": 41,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0093",
+      "name": "Deepak Menon",
+      "class_id": "CLS-02",
+      "roll_no": 42,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0094",
+      "name": "Meera Kurup",
+      "class_id": "CLS-02",
+      "roll_no": 43,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0095",
+      "name": "Nikhil Mohan",
+      "class_id": "CLS-02",
+      "roll_no": 44,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0096",
+      "name": "Aiswarya Suresh",
+      "class_id": "CLS-02",
+      "roll_no": 45,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0097",
+      "name": "Nikhil Bhaskaran",
+      "class_id": "CLS-02",
+      "roll_no": 46,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0098",
+      "name": "Bhavana Joseph",
+      "class_id": "CLS-02",
+      "roll_no": 47,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0099",
+      "name": "Kavya Chandran",
+      "class_id": "CLS-02",
+      "roll_no": 48,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0100",
+      "name": "Devika George",
+      "class_id": "CLS-03",
+      "roll_no": 1,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0101",
+      "name": "Rahul Chandran",
+      "class_id": "CLS-03",
+      "roll_no": 2,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0102",
+      "name": "Reshma Thomas",
+      "class_id": "CLS-03",
+      "roll_no": 3,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0103",
+      "name": "Divya Sasidharan",
+      "class_id": "CLS-03",
+      "roll_no": 4,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0104",
+      "name": "Anjali Mohan",
+      "class_id": "CLS-03",
+      "roll_no": 5,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0105",
+      "name": "Sujith Thomas",
+      "class_id": "CLS-03",
+      "roll_no": 6,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0106",
+      "name": "Meera Das",
+      "class_id": "CLS-03",
+      "roll_no": 7,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0107",
+      "name": "Manu Thomas",
+      "class_id": "CLS-03",
+      "roll_no": 8,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0108",
+      "name": "Nithya Mohan",
+      "class_id": "CLS-03",
+      "roll_no": 9,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0109",
+      "name": "Aiswarya Mohan",
+      "class_id": "CLS-03",
+      "roll_no": 10,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0110",
+      "name": "Sandeep Joseph",
+      "class_id": "CLS-03",
+      "roll_no": 11,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0111",
+      "name": "Deepak Sasidharan",
+      "class_id": "CLS-03",
+      "roll_no": 12,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0112",
+      "name": "Sneha Mathew",
+      "class_id": "CLS-03",
+      "roll_no": 13,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0113",
+      "name": "Devika Menon",
+      "class_id": "CLS-03",
+      "roll_no": 14,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0114",
+      "name": "Nandana Das",
+      "class_id": "CLS-03",
+      "roll_no": 15,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0115",
+      "name": "Gopika Chandran",
+      "class_id": "CLS-03",
+      "roll_no": 16,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0116",
+      "name": "Anjali Menon",
+      "class_id": "CLS-03",
+      "roll_no": 17,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0117",
+      "name": "Vivek Krishnan",
+      "class_id": "CLS-03",
+      "roll_no": 18,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0118",
+      "name": "Harikrishnan Bhaskaran",
+      "class_id": "CLS-03",
+      "roll_no": 19,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0119",
+      "name": "Indu Joseph",
+      "class_id": "CLS-03",
+      "roll_no": 20,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0120",
+      "name": "Nikhil Unnikrishnan",
+      "class_id": "CLS-03",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0121",
+      "name": "Nandana George",
+      "class_id": "CLS-03",
+      "roll_no": 22,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0122",
+      "name": "Sandeep Joseph",
+      "class_id": "CLS-03",
+      "roll_no": 23,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0123",
+      "name": "Jithin Bhaskaran",
+      "class_id": "CLS-03",
+      "roll_no": 24,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0124",
+      "name": "Sujith Pillai",
+      "class_id": "CLS-03",
+      "roll_no": 25,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0125",
+      "name": "Nandana Unnikrishnan",
+      "class_id": "CLS-03",
+      "roll_no": 26,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0126",
+      "name": "Fathima Chandran",
+      "class_id": "CLS-03",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0127",
+      "name": "Athira Mohan",
+      "class_id": "CLS-03",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0128",
+      "name": "Manu Krishnan",
+      "class_id": "CLS-03",
+      "roll_no": 29,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0129",
+      "name": "Anjali Mohan",
+      "class_id": "CLS-03",
+      "roll_no": 30,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0130",
+      "name": "Sneha Joseph",
+      "class_id": "CLS-03",
+      "roll_no": 31,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0131",
+      "name": "Divya Raj",
+      "class_id": "CLS-03",
+      "roll_no": 32,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0132",
+      "name": "Vivek Bhaskaran",
+      "class_id": "CLS-03",
+      "roll_no": 33,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0133",
+      "name": "Nithya Suresh",
+      "class_id": "CLS-03",
+      "roll_no": 34,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0134",
+      "name": "Kavya Unnikrishnan",
+      "class_id": "CLS-03",
+      "roll_no": 35,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0135",
+      "name": "Sujith Raj",
+      "class_id": "CLS-03",
+      "roll_no": 36,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0136",
+      "name": "Aiswarya Raj",
+      "class_id": "CLS-03",
+      "roll_no": 37,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0137",
+      "name": "Lakshmi Mathew",
+      "class_id": "CLS-03",
+      "roll_no": 38,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0138",
+      "name": "Kavya Chandran",
+      "class_id": "CLS-03",
+      "roll_no": 39,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0139",
+      "name": "Divya Varma",
+      "class_id": "CLS-04",
+      "roll_no": 1,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0140",
+      "name": "Divya Mohan",
+      "class_id": "CLS-04",
+      "roll_no": 2,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0141",
+      "name": "Aiswarya Raj",
+      "class_id": "CLS-04",
+      "roll_no": 3,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0142",
+      "name": "Nandana Thomas",
+      "class_id": "CLS-04",
+      "roll_no": 4,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0143",
+      "name": "Nithya Chandran",
+      "class_id": "CLS-04",
+      "roll_no": 5,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0144",
+      "name": "Rohit Menon",
+      "class_id": "CLS-04",
+      "roll_no": 6,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0145",
+      "name": "Nikhil Mathew",
+      "class_id": "CLS-04",
+      "roll_no": 7,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0146",
+      "name": "Fathima Krishnan",
+      "class_id": "CLS-04",
+      "roll_no": 8,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0147",
+      "name": "Anagha Bhaskaran",
+      "class_id": "CLS-04",
+      "roll_no": 9,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0148",
+      "name": "Gopika Bhaskaran",
+      "class_id": "CLS-04",
+      "roll_no": 10,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0149",
+      "name": "Nandana Mathew",
+      "class_id": "CLS-04",
+      "roll_no": 11,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0150",
+      "name": "Fathima Kurup",
+      "class_id": "CLS-04",
+      "roll_no": 12,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0151",
+      "name": "Rahul Krishnan",
+      "class_id": "CLS-04",
+      "roll_no": 13,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0152",
+      "name": "Nikhil Menon",
+      "class_id": "CLS-04",
+      "roll_no": 14,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0153",
+      "name": "Lakshmi Kurup",
+      "class_id": "CLS-04",
+      "roll_no": 15,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0154",
+      "name": "Bhavana George",
+      "class_id": "CLS-04",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0155",
+      "name": "Devika George",
+      "class_id": "CLS-04",
+      "roll_no": 17,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0156",
+      "name": "Jithin Raj",
+      "class_id": "CLS-04",
+      "roll_no": 18,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0157",
+      "name": "Praveen Joseph",
+      "class_id": "CLS-04",
+      "roll_no": 19,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0158",
+      "name": "Sreejith Krishnan",
+      "class_id": "CLS-04",
+      "roll_no": 20,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0159",
+      "name": "Nikhil Unnikrishnan",
+      "class_id": "CLS-04",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0160",
+      "name": "Gopika Varma",
+      "class_id": "CLS-04",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0161",
+      "name": "Sneha Chandran",
+      "class_id": "CLS-04",
+      "roll_no": 23,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0162",
+      "name": "Anjali Nair",
+      "class_id": "CLS-04",
+      "roll_no": 24,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0163",
+      "name": "Kavya Suresh",
+      "class_id": "CLS-04",
+      "roll_no": 25,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0164",
+      "name": "Nikhil Unnikrishnan",
+      "class_id": "CLS-04",
+      "roll_no": 26,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0165",
+      "name": "Kavya Kurup",
+      "class_id": "CLS-04",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0166",
+      "name": "Parvathy Mathew",
+      "class_id": "CLS-04",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0167",
+      "name": "Meera Raj",
+      "class_id": "CLS-04",
+      "roll_no": 29,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0168",
+      "name": "Vishnu Varma",
+      "class_id": "CLS-04",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0169",
+      "name": "Parvathy George",
+      "class_id": "CLS-04",
+      "roll_no": 31,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0170",
+      "name": "Anagha Raj",
+      "class_id": "CLS-04",
+      "roll_no": 32,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0171",
+      "name": "Vivek Krishnan",
+      "class_id": "CLS-04",
+      "roll_no": 33,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0172",
+      "name": "Praveen Kurup",
+      "class_id": "CLS-04",
+      "roll_no": 34,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0173",
+      "name": "Sandeep Varma",
+      "class_id": "CLS-04",
+      "roll_no": 35,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0174",
+      "name": "Praveen Menon",
+      "class_id": "CLS-04",
+      "roll_no": 36,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0175",
+      "name": "Sreejith Das",
+      "class_id": "CLS-04",
+      "roll_no": 37,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0176",
+      "name": "Nandana Kurup",
+      "class_id": "CLS-04",
+      "roll_no": 38,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0177",
+      "name": "Nandana Chandran",
+      "class_id": "CLS-04",
+      "roll_no": 39,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0178",
+      "name": "Reshma Varma",
+      "class_id": "CLS-04",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0179",
+      "name": "Sandeep Das",
+      "class_id": "CLS-04",
+      "roll_no": 41,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0180",
+      "name": "Nithya Sasidharan",
+      "class_id": "CLS-04",
+      "roll_no": 42,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0181",
+      "name": "Bhavana Unnikrishnan",
+      "class_id": "CLS-04",
+      "roll_no": 43,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0182",
+      "name": "Gopika Varma",
+      "class_id": "CLS-04",
+      "roll_no": 44,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0183",
+      "name": "Vishnu Pillai",
+      "class_id": "CLS-04",
+      "roll_no": 45,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0184",
+      "name": "Sandeep Raj",
+      "class_id": "CLS-04",
+      "roll_no": 46,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0185",
+      "name": "Manu Varma",
+      "class_id": "CLS-05",
+      "roll_no": 1,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0186",
+      "name": "Lakshmi Suresh",
+      "class_id": "CLS-05",
+      "roll_no": 2,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0187",
+      "name": "Rohit Mohan",
+      "class_id": "CLS-05",
+      "roll_no": 3,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0188",
+      "name": "Sandeep Menon",
+      "class_id": "CLS-05",
+      "roll_no": 4,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0189",
+      "name": "Vishnu Thomas",
+      "class_id": "CLS-05",
+      "roll_no": 5,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0190",
+      "name": "Aiswarya Chandran",
+      "class_id": "CLS-05",
+      "roll_no": 6,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0191",
+      "name": "Jithin Suresh",
+      "class_id": "CLS-05",
+      "roll_no": 7,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0192",
+      "name": "Parvathy Varma",
+      "class_id": "CLS-05",
+      "roll_no": 8,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0193",
+      "name": "Jithin Suresh",
+      "class_id": "CLS-05",
+      "roll_no": 9,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0194",
+      "name": "Indu Raj",
+      "class_id": "CLS-05",
+      "roll_no": 10,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0195",
+      "name": "Athira Sasidharan",
+      "class_id": "CLS-05",
+      "roll_no": 11,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0196",
+      "name": "Divya Varma",
+      "class_id": "CLS-05",
+      "roll_no": 12,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0197",
+      "name": "Nithya Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 13,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0198",
+      "name": "Nithya Krishnan",
+      "class_id": "CLS-05",
+      "roll_no": 14,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0199",
+      "name": "Meera Bhaskaran",
+      "class_id": "CLS-05",
+      "roll_no": 15,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0200",
+      "name": "Harikrishnan Raj",
+      "class_id": "CLS-05",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0201",
+      "name": "Sneha Joseph",
+      "class_id": "CLS-05",
+      "roll_no": 17,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0202",
+      "name": "Nikhil Unnikrishnan",
+      "class_id": "CLS-05",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0203",
+      "name": "Manu Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 19,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0204",
+      "name": "Lakshmi Das",
+      "class_id": "CLS-05",
+      "roll_no": 20,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0205",
+      "name": "Rohit Kurup",
+      "class_id": "CLS-05",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0206",
+      "name": "Fathima Mohan",
+      "class_id": "CLS-05",
+      "roll_no": 22,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0207",
+      "name": "Vivek Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 23,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0208",
+      "name": "Sneha Sasidharan",
+      "class_id": "CLS-05",
+      "roll_no": 24,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0209",
+      "name": "Vivek George",
+      "class_id": "CLS-05",
+      "roll_no": 25,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0210",
+      "name": "Fathima Thomas",
+      "class_id": "CLS-05",
+      "roll_no": 26,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0211",
+      "name": "Sujith Krishnan",
+      "class_id": "CLS-05",
+      "roll_no": 27,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0212",
+      "name": "Vishnu Mohan",
+      "class_id": "CLS-05",
+      "roll_no": 28,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0213",
+      "name": "Bhavana Varma",
+      "class_id": "CLS-05",
+      "roll_no": 29,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0214",
+      "name": "Nikhil Bhaskaran",
+      "class_id": "CLS-05",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0215",
+      "name": "Bhavana Sasidharan",
+      "class_id": "CLS-05",
+      "roll_no": 31,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0216",
+      "name": "Gopika Raj",
+      "class_id": "CLS-05",
+      "roll_no": 32,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0217",
+      "name": "Parvathy Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 33,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0218",
+      "name": "Harikrishnan Das",
+      "class_id": "CLS-05",
+      "roll_no": 34,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0219",
+      "name": "Fathima Bhaskaran",
+      "class_id": "CLS-05",
+      "roll_no": 35,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0220",
+      "name": "Meera Sasidharan",
+      "class_id": "CLS-05",
+      "roll_no": 36,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0221",
+      "name": "Anjali Pillai",
+      "class_id": "CLS-05",
+      "roll_no": 37,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0222",
+      "name": "Vivek Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 38,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0223",
+      "name": "Sandeep Sasidharan",
+      "class_id": "CLS-05",
+      "roll_no": 39,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0224",
+      "name": "Lakshmi Mathew",
+      "class_id": "CLS-05",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0225",
+      "name": "Parvathy Das",
+      "class_id": "CLS-05",
+      "roll_no": 41,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0226",
+      "name": "Vishnu Varma",
+      "class_id": "CLS-05",
+      "roll_no": 42,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0227",
+      "name": "Rahul Joseph",
+      "class_id": "CLS-05",
+      "roll_no": 43,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0228",
+      "name": "Rahul Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 1,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0229",
+      "name": "Nandana Nair",
+      "class_id": "CLS-06",
+      "roll_no": 2,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0230",
+      "name": "Harikrishnan Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 3,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0231",
+      "name": "Sandeep Pillai",
+      "class_id": "CLS-06",
+      "roll_no": 4,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0232",
+      "name": "Sandeep Suresh",
+      "class_id": "CLS-06",
+      "roll_no": 5,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0233",
+      "name": "Nikhil Varma",
+      "class_id": "CLS-06",
+      "roll_no": 6,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0234",
+      "name": "Sneha Chandran",
+      "class_id": "CLS-06",
+      "roll_no": 7,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0235",
+      "name": "Fathima Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 8,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0236",
+      "name": "Nithya Kurup",
+      "class_id": "CLS-06",
+      "roll_no": 9,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0237",
+      "name": "Anjali Suresh",
+      "class_id": "CLS-06",
+      "roll_no": 10,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0238",
+      "name": "Divya Unnikrishnan",
+      "class_id": "CLS-06",
+      "roll_no": 11,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0239",
+      "name": "Parvathy Unnikrishnan",
+      "class_id": "CLS-06",
+      "roll_no": 12,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0240",
+      "name": "Arun Suresh",
+      "class_id": "CLS-06",
+      "roll_no": 13,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0241",
+      "name": "Meera Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 14,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0242",
+      "name": "Bhavana Menon",
+      "class_id": "CLS-06",
+      "roll_no": 15,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0243",
+      "name": "Lakshmi Unnikrishnan",
+      "class_id": "CLS-06",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0244",
+      "name": "Sreejith Sasidharan",
+      "class_id": "CLS-06",
+      "roll_no": 17,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0245",
+      "name": "Bhavana Chandran",
+      "class_id": "CLS-06",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0246",
+      "name": "Vivek Mohan",
+      "class_id": "CLS-06",
+      "roll_no": 19,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0247",
+      "name": "Devika Pillai",
+      "class_id": "CLS-06",
+      "roll_no": 20,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0248",
+      "name": "Bhavana Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0249",
+      "name": "Nandana Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0250",
+      "name": "Fathima Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 23,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0251",
+      "name": "Athira George",
+      "class_id": "CLS-06",
+      "roll_no": 24,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0252",
+      "name": "Athira Raj",
+      "class_id": "CLS-06",
+      "roll_no": 25,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0253",
+      "name": "Anjali George",
+      "class_id": "CLS-06",
+      "roll_no": 26,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0254",
+      "name": "Anagha Krishnan",
+      "class_id": "CLS-06",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0255",
+      "name": "Harikrishnan Nair",
+      "class_id": "CLS-06",
+      "roll_no": 28,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0256",
+      "name": "Reshma Das",
+      "class_id": "CLS-06",
+      "roll_no": 29,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0257",
+      "name": "Jithin Thomas",
+      "class_id": "CLS-06",
+      "roll_no": 30,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0258",
+      "name": "Nandana Chandran",
+      "class_id": "CLS-06",
+      "roll_no": 31,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0259",
+      "name": "Rohit Bhaskaran",
+      "class_id": "CLS-06",
+      "roll_no": 32,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0260",
+      "name": "Gopika Chandran",
+      "class_id": "CLS-06",
+      "roll_no": 33,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0261",
+      "name": "Kavya Mathew",
+      "class_id": "CLS-06",
+      "roll_no": 34,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0262",
+      "name": "Harikrishnan Das",
+      "class_id": "CLS-06",
+      "roll_no": 35,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0263",
+      "name": "Aiswarya Menon",
+      "class_id": "CLS-06",
+      "roll_no": 36,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0264",
+      "name": "Vivek Raj",
+      "class_id": "CLS-06",
+      "roll_no": 37,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0265",
+      "name": "Athira Nair",
+      "class_id": "CLS-06",
+      "roll_no": 38,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0266",
+      "name": "Aiswarya Das",
+      "class_id": "CLS-06",
+      "roll_no": 39,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0267",
+      "name": "Nandana Das",
+      "class_id": "CLS-06",
+      "roll_no": 40,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0268",
+      "name": "Indu Kurup",
+      "class_id": "CLS-06",
+      "roll_no": 41,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0269",
+      "name": "Aiswarya Raj",
+      "class_id": "CLS-06",
+      "roll_no": 42,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0270",
+      "name": "Sandeep Suresh",
+      "class_id": "CLS-06",
+      "roll_no": 43,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0271",
+      "name": "Jithin Unnikrishnan",
+      "class_id": "CLS-06",
+      "roll_no": 44,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0272",
+      "name": "Athira Suresh",
+      "class_id": "CLS-06",
+      "roll_no": 45,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0273",
+      "name": "Sneha Mathew",
+      "class_id": "CLS-06",
+      "roll_no": 46,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0274",
+      "name": "Meera Chandran",
+      "class_id": "CLS-06",
+      "roll_no": 47,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0275",
+      "name": "Anjali Unnikrishnan",
+      "class_id": "CLS-07",
+      "roll_no": 1,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0276",
+      "name": "Anagha Unnikrishnan",
+      "class_id": "CLS-07",
+      "roll_no": 2,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0277",
+      "name": "Rohit Pillai",
+      "class_id": "CLS-07",
+      "roll_no": 3,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0278",
+      "name": "Reshma Mohan",
+      "class_id": "CLS-07",
+      "roll_no": 4,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0279",
+      "name": "Sreejith Chandran",
+      "class_id": "CLS-07",
+      "roll_no": 5,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0280",
+      "name": "Parvathy Thomas",
+      "class_id": "CLS-07",
+      "roll_no": 6,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0281",
+      "name": "Nikhil Krishnan",
+      "class_id": "CLS-07",
+      "roll_no": 7,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0282",
+      "name": "Indu Menon",
+      "class_id": "CLS-07",
+      "roll_no": 8,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0283",
+      "name": "Harikrishnan Joseph",
+      "class_id": "CLS-07",
+      "roll_no": 9,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0284",
+      "name": "Rohit Bhaskaran",
+      "class_id": "CLS-07",
+      "roll_no": 10,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0285",
+      "name": "Nikhil Raj",
+      "class_id": "CLS-07",
+      "roll_no": 11,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0286",
+      "name": "Fathima Unnikrishnan",
+      "class_id": "CLS-07",
+      "roll_no": 12,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0287",
+      "name": "Indu Joseph",
+      "class_id": "CLS-07",
+      "roll_no": 13,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0288",
+      "name": "Jithin Krishnan",
+      "class_id": "CLS-07",
+      "roll_no": 14,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0289",
+      "name": "Sreejith Mohan",
+      "class_id": "CLS-07",
+      "roll_no": 15,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0290",
+      "name": "Fathima Raj",
+      "class_id": "CLS-07",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0291",
+      "name": "Kavya Kurup",
+      "class_id": "CLS-07",
+      "roll_no": 17,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0292",
+      "name": "Bhavana Menon",
+      "class_id": "CLS-07",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0293",
+      "name": "Anagha Sasidharan",
+      "class_id": "CLS-07",
+      "roll_no": 19,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0294",
+      "name": "Harikrishnan Menon",
+      "class_id": "CLS-07",
+      "roll_no": 20,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0295",
+      "name": "Arun Thomas",
+      "class_id": "CLS-07",
+      "roll_no": 21,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0296",
+      "name": "Lakshmi Thomas",
+      "class_id": "CLS-07",
+      "roll_no": 22,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0297",
+      "name": "Parvathy Krishnan",
+      "class_id": "CLS-07",
+      "roll_no": 23,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0298",
+      "name": "Gopika Das",
+      "class_id": "CLS-07",
+      "roll_no": 24,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0299",
+      "name": "Bhavana Das",
+      "class_id": "CLS-07",
+      "roll_no": 25,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0300",
+      "name": "Anagha Kurup",
+      "class_id": "CLS-07",
+      "roll_no": 26,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0301",
+      "name": "Anagha Unnikrishnan",
+      "class_id": "CLS-07",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0302",
+      "name": "Vivek Mathew",
+      "class_id": "CLS-07",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0303",
+      "name": "Aiswarya Nair",
+      "class_id": "CLS-07",
+      "roll_no": 29,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0304",
+      "name": "Parvathy Unnikrishnan",
+      "class_id": "CLS-07",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0305",
+      "name": "Vishnu Suresh",
+      "class_id": "CLS-07",
+      "roll_no": 31,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0306",
+      "name": "Lakshmi Mohan",
+      "class_id": "CLS-07",
+      "roll_no": 32,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0307",
+      "name": "Anjali Varma",
+      "class_id": "CLS-07",
+      "roll_no": 33,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0308",
+      "name": "Fathima Kurup",
+      "class_id": "CLS-07",
+      "roll_no": 34,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0309",
+      "name": "Jithin Das",
+      "class_id": "CLS-07",
+      "roll_no": 35,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0310",
+      "name": "Bhavana George",
+      "class_id": "CLS-07",
+      "roll_no": 36,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0311",
+      "name": "Rohit Varma",
+      "class_id": "CLS-07",
+      "roll_no": 37,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0312",
+      "name": "Anagha Varma",
+      "class_id": "CLS-07",
+      "roll_no": 38,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0313",
+      "name": "Anagha Kurup",
+      "class_id": "CLS-07",
+      "roll_no": 39,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0314",
+      "name": "Jithin Joseph",
+      "class_id": "CLS-07",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0315",
+      "name": "Indu Bhaskaran",
+      "class_id": "CLS-07",
+      "roll_no": 41,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0316",
+      "name": "Jithin Krishnan",
+      "class_id": "CLS-08",
+      "roll_no": 1,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0317",
+      "name": "Praveen Nair",
+      "class_id": "CLS-08",
+      "roll_no": 2,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0318",
+      "name": "Kavya Menon",
+      "class_id": "CLS-08",
+      "roll_no": 3,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0319",
+      "name": "Athira Sasidharan",
+      "class_id": "CLS-08",
+      "roll_no": 4,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0320",
+      "name": "Indu Varma",
+      "class_id": "CLS-08",
+      "roll_no": 5,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0321",
+      "name": "Athira Menon",
+      "class_id": "CLS-08",
+      "roll_no": 6,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0322",
+      "name": "Rahul Das",
+      "class_id": "CLS-08",
+      "roll_no": 7,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0323",
+      "name": "Gopika Mohan",
+      "class_id": "CLS-08",
+      "roll_no": 8,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0324",
+      "name": "Arun Varma",
+      "class_id": "CLS-08",
+      "roll_no": 9,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0325",
+      "name": "Nikhil Varma",
+      "class_id": "CLS-08",
+      "roll_no": 10,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0326",
+      "name": "Sneha Varma",
+      "class_id": "CLS-08",
+      "roll_no": 11,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0327",
+      "name": "Indu Joseph",
+      "class_id": "CLS-08",
+      "roll_no": 12,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0328",
+      "name": "Aiswarya Suresh",
+      "class_id": "CLS-08",
+      "roll_no": 13,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0329",
+      "name": "Jithin Pillai",
+      "class_id": "CLS-08",
+      "roll_no": 14,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0330",
+      "name": "Manu Bhaskaran",
+      "class_id": "CLS-08",
+      "roll_no": 15,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0331",
+      "name": "Sreejith Suresh",
+      "class_id": "CLS-08",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0332",
+      "name": "Sreejith Krishnan",
+      "class_id": "CLS-08",
+      "roll_no": 17,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0333",
+      "name": "Parvathy Varma",
+      "class_id": "CLS-08",
+      "roll_no": 18,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0334",
+      "name": "Rohit Mohan",
+      "class_id": "CLS-08",
+      "roll_no": 19,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0335",
+      "name": "Devika Joseph",
+      "class_id": "CLS-08",
+      "roll_no": 20,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0336",
+      "name": "Reshma Joseph",
+      "class_id": "CLS-08",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0337",
+      "name": "Rohit Unnikrishnan",
+      "class_id": "CLS-08",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0338",
+      "name": "Anjali Bhaskaran",
+      "class_id": "CLS-08",
+      "roll_no": 23,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0339",
+      "name": "Bhavana Thomas",
+      "class_id": "CLS-08",
+      "roll_no": 24,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0340",
+      "name": "Reshma Thomas",
+      "class_id": "CLS-08",
+      "roll_no": 25,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0341",
+      "name": "Deepak Pillai",
+      "class_id": "CLS-08",
+      "roll_no": 26,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0342",
+      "name": "Lakshmi Mohan",
+      "class_id": "CLS-08",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0343",
+      "name": "Devika Mohan",
+      "class_id": "CLS-08",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0344",
+      "name": "Gopika Bhaskaran",
+      "class_id": "CLS-08",
+      "roll_no": 29,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0345",
+      "name": "Nikhil Krishnan",
+      "class_id": "CLS-08",
+      "roll_no": 30,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0346",
+      "name": "Nithya Das",
+      "class_id": "CLS-08",
+      "roll_no": 31,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0347",
+      "name": "Arun Chandran",
+      "class_id": "CLS-08",
+      "roll_no": 32,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0348",
+      "name": "Sujith Chandran",
+      "class_id": "CLS-08",
+      "roll_no": 33,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0349",
+      "name": "Deepak Raj",
+      "class_id": "CLS-08",
+      "roll_no": 34,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0350",
+      "name": "Parvathy Thomas",
+      "class_id": "CLS-08",
+      "roll_no": 35,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0351",
+      "name": "Manu Kurup",
+      "class_id": "CLS-08",
+      "roll_no": 36,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0352",
+      "name": "Vivek George",
+      "class_id": "CLS-08",
+      "roll_no": 37,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0353",
+      "name": "Harikrishnan Kurup",
+      "class_id": "CLS-08",
+      "roll_no": 38,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0354",
+      "name": "Anjali Chandran",
+      "class_id": "CLS-08",
+      "roll_no": 39,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0355",
+      "name": "Manu Raj",
+      "class_id": "CLS-08",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0356",
+      "name": "Nikhil Nair",
+      "class_id": "CLS-08",
+      "roll_no": 41,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0357",
+      "name": "Arun Thomas",
+      "class_id": "CLS-08",
+      "roll_no": 42,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0358",
+      "name": "Divya Thomas",
+      "class_id": "CLS-08",
+      "roll_no": 43,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0359",
+      "name": "Reshma Joseph",
+      "class_id": "CLS-08",
+      "roll_no": 44,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0360",
+      "name": "Deepak Krishnan",
+      "class_id": "CLS-08",
+      "roll_no": 45,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0361",
+      "name": "Manu George",
+      "class_id": "CLS-08",
+      "roll_no": 46,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0362",
+      "name": "Nithya Chandran",
+      "class_id": "CLS-08",
+      "roll_no": 47,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0363",
+      "name": "Vivek Raj",
+      "class_id": "CLS-08",
+      "roll_no": 48,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0364",
+      "name": "Sandeep Pillai",
+      "class_id": "CLS-08",
+      "roll_no": 49,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0365",
+      "name": "Arun Kurup",
+      "class_id": "CLS-09",
+      "roll_no": 1,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0366",
+      "name": "Arun George",
+      "class_id": "CLS-09",
+      "roll_no": 2,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0367",
+      "name": "Vishnu Kurup",
+      "class_id": "CLS-09",
+      "roll_no": 3,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0368",
+      "name": "Harikrishnan Varma",
+      "class_id": "CLS-09",
+      "roll_no": 4,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0369",
+      "name": "Harikrishnan Varma",
+      "class_id": "CLS-09",
+      "roll_no": 5,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0370",
+      "name": "Jithin Menon",
+      "class_id": "CLS-09",
+      "roll_no": 6,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0371",
+      "name": "Reshma Pillai",
+      "class_id": "CLS-09",
+      "roll_no": 7,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0372",
+      "name": "Arun Raj",
+      "class_id": "CLS-09",
+      "roll_no": 8,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0373",
+      "name": "Lakshmi Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 9,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0374",
+      "name": "Divya George",
+      "class_id": "CLS-09",
+      "roll_no": 10,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0375",
+      "name": "Praveen Krishnan",
+      "class_id": "CLS-09",
+      "roll_no": 11,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0376",
+      "name": "Reshma Mohan",
+      "class_id": "CLS-09",
+      "roll_no": 12,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0377",
+      "name": "Nithya Menon",
+      "class_id": "CLS-09",
+      "roll_no": 13,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0378",
+      "name": "Bhavana Varma",
+      "class_id": "CLS-09",
+      "roll_no": 14,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0379",
+      "name": "Anjali Mathew",
+      "class_id": "CLS-09",
+      "roll_no": 15,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0380",
+      "name": "Rahul Chandran",
+      "class_id": "CLS-09",
+      "roll_no": 16,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0381",
+      "name": "Sujith Unnikrishnan",
+      "class_id": "CLS-09",
+      "roll_no": 17,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0382",
+      "name": "Anjali Menon",
+      "class_id": "CLS-09",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0383",
+      "name": "Sreejith Sasidharan",
+      "class_id": "CLS-09",
+      "roll_no": 19,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0384",
+      "name": "Anagha Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 20,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0385",
+      "name": "Vishnu Chandran",
+      "class_id": "CLS-09",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0386",
+      "name": "Arun Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0387",
+      "name": "Devika Varma",
+      "class_id": "CLS-09",
+      "roll_no": 23,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0388",
+      "name": "Indu Menon",
+      "class_id": "CLS-09",
+      "roll_no": 24,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0389",
+      "name": "Nikhil Krishnan",
+      "class_id": "CLS-09",
+      "roll_no": 25,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0390",
+      "name": "Rahul Krishnan",
+      "class_id": "CLS-09",
+      "roll_no": 26,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0391",
+      "name": "Harikrishnan Chandran",
+      "class_id": "CLS-09",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0392",
+      "name": "Fathima Nair",
+      "class_id": "CLS-09",
+      "roll_no": 28,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0393",
+      "name": "Devika Menon",
+      "class_id": "CLS-09",
+      "roll_no": 29,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0394",
+      "name": "Vishnu Menon",
+      "class_id": "CLS-09",
+      "roll_no": 30,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0395",
+      "name": "Vishnu Varma",
+      "class_id": "CLS-09",
+      "roll_no": 31,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0396",
+      "name": "Nandana Pillai",
+      "class_id": "CLS-09",
+      "roll_no": 32,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0397",
+      "name": "Kavya Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 33,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0398",
+      "name": "Divya Mohan",
+      "class_id": "CLS-09",
+      "roll_no": 34,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0399",
+      "name": "Anagha Unnikrishnan",
+      "class_id": "CLS-09",
+      "roll_no": 35,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0400",
+      "name": "Gopika Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 36,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0401",
+      "name": "Anagha Suresh",
+      "class_id": "CLS-09",
+      "roll_no": 37,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0402",
+      "name": "Kavya Raj",
+      "class_id": "CLS-09",
+      "roll_no": 38,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0403",
+      "name": "Sreejith Mohan",
+      "class_id": "CLS-09",
+      "roll_no": 39,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0404",
+      "name": "Harikrishnan Joseph",
+      "class_id": "CLS-09",
+      "roll_no": 40,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0405",
+      "name": "Vivek Raj",
+      "class_id": "CLS-09",
+      "roll_no": 41,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0406",
+      "name": "Bhavana Mathew",
+      "class_id": "CLS-09",
+      "roll_no": 42,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0407",
+      "name": "Divya Joseph",
+      "class_id": "CLS-10",
+      "roll_no": 1,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0408",
+      "name": "Vivek Sasidharan",
+      "class_id": "CLS-10",
+      "roll_no": 2,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0409",
+      "name": "Lakshmi Raj",
+      "class_id": "CLS-10",
+      "roll_no": 3,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0410",
+      "name": "Aiswarya Das",
+      "class_id": "CLS-10",
+      "roll_no": 4,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0411",
+      "name": "Nikhil Pillai",
+      "class_id": "CLS-10",
+      "roll_no": 5,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0412",
+      "name": "Sujith Pillai",
+      "class_id": "CLS-10",
+      "roll_no": 6,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0413",
+      "name": "Jithin George",
+      "class_id": "CLS-10",
+      "roll_no": 7,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0414",
+      "name": "Aiswarya Unnikrishnan",
+      "class_id": "CLS-10",
+      "roll_no": 8,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0415",
+      "name": "Reshma Bhaskaran",
+      "class_id": "CLS-10",
+      "roll_no": 9,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0416",
+      "name": "Meera Bhaskaran",
+      "class_id": "CLS-10",
+      "roll_no": 10,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0417",
+      "name": "Vishnu Suresh",
+      "class_id": "CLS-10",
+      "roll_no": 11,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0418",
+      "name": "Nandana Das",
+      "class_id": "CLS-10",
+      "roll_no": 12,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0419",
+      "name": "Sreejith Nair",
+      "class_id": "CLS-10",
+      "roll_no": 13,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0420",
+      "name": "Harikrishnan Raj",
+      "class_id": "CLS-10",
+      "roll_no": 14,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0421",
+      "name": "Nandana Bhaskaran",
+      "class_id": "CLS-10",
+      "roll_no": 15,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0422",
+      "name": "Nikhil Menon",
+      "class_id": "CLS-10",
+      "roll_no": 16,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0423",
+      "name": "Rahul Nair",
+      "class_id": "CLS-10",
+      "roll_no": 17,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0424",
+      "name": "Parvathy Unnikrishnan",
+      "class_id": "CLS-10",
+      "roll_no": 18,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0425",
+      "name": "Harikrishnan Kurup",
+      "class_id": "CLS-10",
+      "roll_no": 19,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0426",
+      "name": "Rohit Unnikrishnan",
+      "class_id": "CLS-10",
+      "roll_no": 20,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0427",
+      "name": "Sandeep Joseph",
+      "class_id": "CLS-10",
+      "roll_no": 21,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0428",
+      "name": "Gopika Bhaskaran",
+      "class_id": "CLS-10",
+      "roll_no": 22,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0429",
+      "name": "Jithin Kurup",
+      "class_id": "CLS-10",
+      "roll_no": 23,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0430",
+      "name": "Praveen Kurup",
+      "class_id": "CLS-10",
+      "roll_no": 24,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0431",
+      "name": "Sandeep Menon",
+      "class_id": "CLS-10",
+      "roll_no": 25,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0432",
+      "name": "Sujith Kurup",
+      "class_id": "CLS-10",
+      "roll_no": 26,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0433",
+      "name": "Parvathy Raj",
+      "class_id": "CLS-10",
+      "roll_no": 27,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0434",
+      "name": "Devika Chandran",
+      "class_id": "CLS-10",
+      "roll_no": 28,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0435",
+      "name": "Praveen Varma",
+      "class_id": "CLS-10",
+      "roll_no": 29,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0436",
+      "name": "Sreejith Raj",
+      "class_id": "CLS-10",
+      "roll_no": 30,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0437",
+      "name": "Arun Mathew",
+      "class_id": "CLS-10",
+      "roll_no": 31,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0438",
+      "name": "Kavya Raj",
+      "class_id": "CLS-10",
+      "roll_no": 32,
+      "second_language": "Sanskrit"
+    },
+    {
+      "student_id": "STU-0439",
+      "name": "Meera Bhaskaran",
+      "class_id": "CLS-10",
+      "roll_no": 33,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0440",
+      "name": "Praveen Mohan",
+      "class_id": "CLS-10",
+      "roll_no": 34,
+      "second_language": "French"
+    },
+    {
+      "student_id": "STU-0441",
+      "name": "Gopika Das",
+      "class_id": "CLS-10",
+      "roll_no": 35,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0442",
+      "name": "Athira Kurup",
+      "class_id": "CLS-10",
+      "roll_no": 36,
+      "second_language": "Malayalam"
+    },
+    {
+      "student_id": "STU-0443",
+      "name": "Nikhil Sasidharan",
+      "class_id": "CLS-10",
+      "roll_no": 37,
+      "second_language": "Hindi"
+    },
+    {
+      "student_id": "STU-0444",
+      "name": "Athira Raj",
+      "class_id": "CLS-10",
+      "roll_no": 38,
+      "second_language": "Sanskrit"
+    }
+  ],
+  "teachers": [
+    {
+      "teacher_id": "TCH-01",
+      "name": "Rahul Joseph",
+      "department": "Biology",
+      "max_weekly_periods": 24,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 21
+    },
+    {
+      "teacher_id": "TCH-02",
+      "name": "Fathima Pillai",
+      "department": "Chemistry",
+      "max_weekly_periods": 20,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P5"
+        },
+        {
+          "day": "Tuesday",
+          "period": "P4"
+        }
+      ],
+      "available_period_count": 33,
+      "assigned_weekly_periods": 18
+    },
+    {
+      "teacher_id": "TCH-03",
+      "name": "Sandeep Mathew",
+      "department": "Chemistry",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P2",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Friday",
+          "period": "P3"
+        },
+        {
+          "day": "Thursday",
+          "period": "P1"
+        },
+        {
+          "day": "Thursday",
+          "period": "P3"
+        }
+      ],
+      "available_period_count": 32,
+      "assigned_weekly_periods": 18
+    },
+    {
+      "teacher_id": "TCH-04",
+      "name": "Divya Suresh",
+      "department": "Commerce",
+      "max_weekly_periods": 25,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Tuesday",
+          "period": "P3"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 14
+    },
+    {
+      "teacher_id": "TCH-05",
+      "name": "Nikhil Mohan",
+      "department": "Commerce",
+      "max_weekly_periods": 24,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P2"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 14
+    },
+    {
+      "teacher_id": "TCH-06",
+      "name": "Devika Unnikrishnan",
+      "department": "Computer Science",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 20
+    },
+    {
+      "teacher_id": "TCH-07",
+      "name": "Rohit Thomas",
+      "department": "Computer Science",
+      "max_weekly_periods": 20,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 13
+    },
+    {
+      "teacher_id": "TCH-08",
+      "name": "Rahul Unnikrishnan",
+      "department": "Economics",
+      "max_weekly_periods": 21,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "Wednesday": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Friday",
+          "period": "P6"
+        },
+        {
+          "day": "Tuesday",
+          "period": "P7"
+        },
+        {
+          "day": "Wednesday",
+          "period": "P1"
+        }
+      ],
+      "available_period_count": 32,
+      "assigned_weekly_periods": 12
+    },
+    {
+      "teacher_id": "TCH-09",
+      "name": "Anjali Sasidharan",
+      "department": "Economics",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Friday",
+          "period": "P4"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 12
+    },
+    {
+      "teacher_id": "TCH-10",
+      "name": "Indu Suresh",
+      "department": "English",
+      "max_weekly_periods": 24,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Wednesday",
+          "period": "P3"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 20
+    },
+    {
+      "teacher_id": "TCH-11",
+      "name": "Sandeep Suresh",
+      "department": "English",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Friday",
+          "period": "P2"
+        },
+        {
+          "day": "Friday",
+          "period": "P3"
+        }
+      ],
+      "available_period_count": 33,
+      "assigned_weekly_periods": 15
+    },
+    {
+      "teacher_id": "TCH-12",
+      "name": "Anagha Bhaskaran",
+      "department": "English",
+      "max_weekly_periods": 21,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Wednesday",
+          "period": "P5"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 15
+    },
+    {
+      "teacher_id": "TCH-13",
+      "name": "Nithya Joseph",
+      "department": "French",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Tuesday",
+          "period": "P6"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 4
+    },
+    {
+      "teacher_id": "TCH-14",
+      "name": "Vishnu Suresh",
+      "department": "Hindi",
+      "max_weekly_periods": 21,
+      "availability": {
+        "Monday": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P1"
+        },
+        {
+          "day": "Thursday",
+          "period": "P5"
+        },
+        {
+          "day": "Tuesday",
+          "period": "P2"
+        }
+      ],
+      "available_period_count": 32,
+      "assigned_weekly_periods": 12
+    },
+    {
+      "teacher_id": "TCH-15",
+      "name": "Meera Mathew",
+      "department": "Malayalam",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P1"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 12
+    },
+    {
+      "teacher_id": "TCH-16",
+      "name": "Lakshmi Raj",
+      "department": "Malayalam",
+      "max_weekly_periods": 20,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Tuesday",
+          "period": "P5"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 8
+    },
+    {
+      "teacher_id": "TCH-17",
+      "name": "Nikhil Mathew",
+      "department": "Mathematics",
+      "max_weekly_periods": 26,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Friday",
+          "period": "P1"
+        },
+        {
+          "day": "Tuesday",
+          "period": "P6"
+        }
+      ],
+      "available_period_count": 33,
+      "assigned_weekly_periods": 21
+    },
+    {
+      "teacher_id": "TCH-18",
+      "name": "Aiswarya Menon",
+      "department": "Mathematics",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Tuesday",
+          "period": "P7"
+        },
+        {
+          "day": "Wednesday",
+          "period": "P5"
+        }
+      ],
+      "available_period_count": 33,
+      "assigned_weekly_periods": 21
+    },
+    {
+      "teacher_id": "TCH-19",
+      "name": "Deepak Das",
+      "department": "Physics",
+      "max_weekly_periods": 21,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 18
+    },
+    {
+      "teacher_id": "TCH-20",
+      "name": "Sreejith Pillai",
+      "department": "Physics",
+      "max_weekly_periods": 26,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P2"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 18
+    },
+    {
+      "teacher_id": "TCH-21",
+      "name": "Lakshmi George",
+      "department": "Sanskrit",
+      "max_weekly_periods": 26,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 8
+    },
+    {
+      "teacher_id": "TCH-22",
+      "name": "Arun Krishnan",
+      "department": "Social Science",
+      "max_weekly_periods": 22,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [
+        {
+          "day": "Monday",
+          "period": "P3"
+        }
+      ],
+      "available_period_count": 34,
+      "assigned_weekly_periods": 20
+    },
+    {
+      "teacher_id": "TCH-23",
+      "name": "Divya George",
+      "department": "Social Science",
+      "max_weekly_periods": 23,
+      "availability": {
+        "Monday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Tuesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Wednesday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Thursday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ],
+        "Friday": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5",
+          "P6",
+          "P7"
+        ]
+      },
+      "unavailable_slots": [],
+      "available_period_count": 35,
+      "assigned_weekly_periods": 20
+    }
+  ],
+  "class_subjects": [
+    {
+      "class_subject_id": "CS-001",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-002",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-003",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-004",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-005",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-006",
+      "class_id": "CLS-01",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-007",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-008",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-009",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-010",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-011",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-012",
+      "class_id": "CLS-02",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-013",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-014",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-015",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-016",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-017",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-018",
+      "class_id": "CLS-03",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-019",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-020",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-021",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-16",
+      "subject_name": "History",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-022",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-023",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-024",
+      "class_id": "CLS-04",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-025",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-026",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-027",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-028",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-029",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-030",
+      "class_id": "CLS-05",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-031",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-032",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-033",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-034",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-035",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-036",
+      "class_id": "CLS-06",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-037",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-038",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-039",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-040",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-041",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-042",
+      "class_id": "CLS-07",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-043",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-044",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-045",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-16",
+      "subject_name": "History",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-046",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-047",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-048",
+      "class_id": "CLS-08",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-049",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-050",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-051",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-052",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-053",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-054",
+      "class_id": "CLS-09",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-055",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "weekly_periods": 5,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-056",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-02",
+      "subject_name": "Second Language",
+      "weekly_periods": 4,
+      "taught_in_language_groups": true
+    },
+    {
+      "class_subject_id": "CS-057",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-058",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "weekly_periods": 6,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-059",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    },
+    {
+      "class_subject_id": "CS-060",
+      "class_id": "CLS-10",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "weekly_periods": 7,
+      "taught_in_language_groups": false
+    }
+  ],
+  "teacher_subjects": [
+    {
+      "teacher_id": "TCH-01",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology"
+    },
+    {
+      "teacher_id": "TCH-02",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry"
+    },
+    {
+      "teacher_id": "TCH-03",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry"
+    },
+    {
+      "teacher_id": "TCH-04",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies"
+    },
+    {
+      "teacher_id": "TCH-04",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy"
+    },
+    {
+      "teacher_id": "TCH-05",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies"
+    },
+    {
+      "teacher_id": "TCH-05",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy"
+    },
+    {
+      "teacher_id": "TCH-06",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science"
+    },
+    {
+      "teacher_id": "TCH-06",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application"
+    },
+    {
+      "teacher_id": "TCH-07",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science"
+    },
+    {
+      "teacher_id": "TCH-07",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application"
+    },
+    {
+      "teacher_id": "TCH-08",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics"
+    },
+    {
+      "teacher_id": "TCH-09",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics"
+    },
+    {
+      "teacher_id": "TCH-10",
+      "subject_id": "SUB-01",
+      "subject_name": "English"
+    },
+    {
+      "teacher_id": "TCH-11",
+      "subject_id": "SUB-01",
+      "subject_name": "English"
+    },
+    {
+      "teacher_id": "TCH-12",
+      "subject_id": "SUB-01",
+      "subject_name": "English"
+    },
+    {
+      "teacher_id": "TCH-13",
+      "subject_id": "SUB-06",
+      "subject_name": "French"
+    },
+    {
+      "teacher_id": "TCH-14",
+      "subject_id": "SUB-04",
+      "subject_name": "Hindi"
+    },
+    {
+      "teacher_id": "TCH-15",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam"
+    },
+    {
+      "teacher_id": "TCH-16",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam"
+    },
+    {
+      "teacher_id": "TCH-17",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics"
+    },
+    {
+      "teacher_id": "TCH-18",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics"
+    },
+    {
+      "teacher_id": "TCH-19",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics"
+    },
+    {
+      "teacher_id": "TCH-20",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics"
+    },
+    {
+      "teacher_id": "TCH-21",
+      "subject_id": "SUB-05",
+      "subject_name": "Sanskrit"
+    },
+    {
+      "teacher_id": "TCH-22",
+      "subject_id": "SUB-16",
+      "subject_name": "History"
+    },
+    {
+      "teacher_id": "TCH-22",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science"
+    },
+    {
+      "teacher_id": "TCH-22",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology"
+    },
+    {
+      "teacher_id": "TCH-23",
+      "subject_id": "SUB-16",
+      "subject_name": "History"
+    },
+    {
+      "teacher_id": "TCH-23",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science"
+    },
+    {
+      "teacher_id": "TCH-23",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology"
+    }
+  ],
+  "language_groups": [
+    {
+      "language_group_id": "LG-01",
+      "name": "French Group 1",
+      "language": "French",
+      "subject_id": "SUB-06",
+      "weekly_periods": 4,
+      "strength": 41,
+      "class_distribution": {
+        "CLS-01": 5,
+        "CLS-02": 6,
+        "CLS-03": 3,
+        "CLS-04": 7,
+        "CLS-05": 4,
+        "CLS-06": 4,
+        "CLS-07": 3,
+        "CLS-08": 4,
+        "CLS-09": 2,
+        "CLS-10": 3
+      },
+      "class_ids": [
+        "CLS-01",
+        "CLS-02",
+        "CLS-03",
+        "CLS-04",
+        "CLS-05",
+        "CLS-06",
+        "CLS-07",
+        "CLS-08",
+        "CLS-09",
+        "CLS-10"
+      ],
+      "student_ids": [
+        "STU-0001",
+        "STU-0020",
+        "STU-0026",
+        "STU-0028",
+        "STU-0039",
+        "STU-0061",
+        "STU-0068",
+        "STU-0072",
+        "STU-0086",
+        "STU-0091",
+        "STU-0093",
+        "STU-0105",
+        "STU-0111",
+        "STU-0134",
+        "STU-0144",
+        "STU-0145",
+        "STU-0151",
+        "STU-0156",
+        "STU-0172",
+        "STU-0176",
+        "STU-0182",
+        "STU-0189",
+        "STU-0211",
+        "STU-0221",
+        "STU-0225",
+        "STU-0252",
+        "STU-0253",
+        "STU-0260",
+        "STU-0263",
+        "STU-0283",
+        "STU-0297",
+        "STU-0309",
+        "STU-0324",
+        "STU-0330",
+        "STU-0344",
+        "STU-0364",
+        "STU-0370",
+        "STU-0378",
+        "STU-0434",
+        "STU-0436",
+        "STU-0440"
+      ]
+    },
+    {
+      "language_group_id": "LG-02",
+      "name": "Hindi Group 2",
+      "language": "Hindi",
+      "subject_id": "SUB-04",
+      "weekly_periods": 4,
+      "strength": 45,
+      "class_distribution": {
+        "CLS-01": 11,
+        "CLS-02": 16,
+        "CLS-03": 15,
+        "CLS-04": 3
+      },
+      "class_ids": [
+        "CLS-01",
+        "CLS-02",
+        "CLS-03",
+        "CLS-04"
+      ],
+      "student_ids": [
+        "STU-0005",
+        "STU-0006",
+        "STU-0008",
+        "STU-0027",
+        "STU-0029",
+        "STU-0031",
+        "STU-0038",
+        "STU-0042",
+        "STU-0045",
+        "STU-0048",
+        "STU-0049",
+        "STU-0054",
+        "STU-0057",
+        "STU-0060",
+        "STU-0063",
+        "STU-0064",
+        "STU-0067",
+        "STU-0071",
+        "STU-0074",
+        "STU-0075",
+        "STU-0076",
+        "STU-0077",
+        "STU-0078",
+        "STU-0085",
+        "STU-0088",
+        "STU-0089",
+        "STU-0099",
+        "STU-0107",
+        "STU-0109",
+        "STU-0110",
+        "STU-0114",
+        "STU-0115",
+        "STU-0116",
+        "STU-0117",
+        "STU-0118",
+        "STU-0119",
+        "STU-0121",
+        "STU-0122",
+        "STU-0123",
+        "STU-0128",
+        "STU-0137",
+        "STU-0138",
+        "STU-0140",
+        "STU-0142",
+        "STU-0149"
+      ]
+    },
+    {
+      "language_group_id": "LG-03",
+      "name": "Hindi Group 3",
+      "language": "Hindi",
+      "subject_id": "SUB-04",
+      "weekly_periods": 4,
+      "strength": 44,
+      "class_distribution": {
+        "CLS-04": 11,
+        "CLS-05": 15,
+        "CLS-06": 13,
+        "CLS-07": 5
+      },
+      "class_ids": [
+        "CLS-04",
+        "CLS-05",
+        "CLS-06",
+        "CLS-07"
+      ],
+      "student_ids": [
+        "STU-0153",
+        "STU-0158",
+        "STU-0162",
+        "STU-0164",
+        "STU-0169",
+        "STU-0170",
+        "STU-0177",
+        "STU-0179",
+        "STU-0181",
+        "STU-0183",
+        "STU-0184",
+        "STU-0185",
+        "STU-0187",
+        "STU-0191",
+        "STU-0193",
+        "STU-0194",
+        "STU-0195",
+        "STU-0199",
+        "STU-0201",
+        "STU-0206",
+        "STU-0207",
+        "STU-0209",
+        "STU-0212",
+        "STU-0218",
+        "STU-0223",
+        "STU-0227",
+        "STU-0229",
+        "STU-0238",
+        "STU-0239",
+        "STU-0242",
+        "STU-0246",
+        "STU-0255",
+        "STU-0262",
+        "STU-0265",
+        "STU-0267",
+        "STU-0269",
+        "STU-0272",
+        "STU-0273",
+        "STU-0274",
+        "STU-0275",
+        "STU-0277",
+        "STU-0278",
+        "STU-0279",
+        "STU-0287"
+      ]
+    },
+    {
+      "language_group_id": "LG-04",
+      "name": "Hindi Group 4",
+      "language": "Hindi",
+      "subject_id": "SUB-04",
+      "weekly_periods": 4,
+      "strength": 44,
+      "class_distribution": {
+        "CLS-07": 6,
+        "CLS-08": 16,
+        "CLS-09": 11,
+        "CLS-10": 11
+      },
+      "class_ids": [
+        "CLS-07",
+        "CLS-08",
+        "CLS-09",
+        "CLS-10"
+      ],
+      "student_ids": [
+        "STU-0293",
+        "STU-0294",
+        "STU-0300",
+        "STU-0305",
+        "STU-0308",
+        "STU-0310",
+        "STU-0316",
+        "STU-0317",
+        "STU-0320",
+        "STU-0322",
+        "STU-0325",
+        "STU-0327",
+        "STU-0333",
+        "STU-0335",
+        "STU-0338",
+        "STU-0339",
+        "STU-0346",
+        "STU-0348",
+        "STU-0357",
+        "STU-0359",
+        "STU-0361",
+        "STU-0363",
+        "STU-0366",
+        "STU-0367",
+        "STU-0368",
+        "STU-0373",
+        "STU-0376",
+        "STU-0389",
+        "STU-0395",
+        "STU-0397",
+        "STU-0399",
+        "STU-0400",
+        "STU-0402",
+        "STU-0407",
+        "STU-0408",
+        "STU-0411",
+        "STU-0412",
+        "STU-0414",
+        "STU-0417",
+        "STU-0422",
+        "STU-0423",
+        "STU-0431",
+        "STU-0439",
+        "STU-0443"
+      ]
+    },
+    {
+      "language_group_id": "LG-05",
+      "name": "Malayalam Group 5",
+      "language": "Malayalam",
+      "subject_id": "SUB-03",
+      "weekly_periods": 4,
+      "strength": 40,
+      "class_distribution": {
+        "CLS-01": 24,
+        "CLS-02": 16
+      },
+      "class_ids": [
+        "CLS-01",
+        "CLS-02"
+      ],
+      "student_ids": [
+        "STU-0002",
+        "STU-0004",
+        "STU-0007",
+        "STU-0009",
+        "STU-0011",
+        "STU-0012",
+        "STU-0015",
+        "STU-0016",
+        "STU-0017",
+        "STU-0018",
+        "STU-0021",
+        "STU-0025",
+        "STU-0030",
+        "STU-0032",
+        "STU-0033",
+        "STU-0035",
+        "STU-0036",
+        "STU-0040",
+        "STU-0041",
+        "STU-0043",
+        "STU-0046",
+        "STU-0047",
+        "STU-0050",
+        "STU-0051",
+        "STU-0052",
+        "STU-0059",
+        "STU-0062",
+        "STU-0065",
+        "STU-0066",
+        "STU-0069",
+        "STU-0070",
+        "STU-0073",
+        "STU-0079",
+        "STU-0080",
+        "STU-0081",
+        "STU-0082",
+        "STU-0083",
+        "STU-0087",
+        "STU-0090",
+        "STU-0092"
+      ]
+    },
+    {
+      "language_group_id": "LG-06",
+      "name": "Malayalam Group 6",
+      "language": "Malayalam",
+      "subject_id": "SUB-03",
+      "weekly_periods": 4,
+      "strength": 40,
+      "class_distribution": {
+        "CLS-02": 3,
+        "CLS-03": 14,
+        "CLS-04": 22,
+        "CLS-05": 1
+      },
+      "class_ids": [
+        "CLS-02",
+        "CLS-03",
+        "CLS-04",
+        "CLS-05"
+      ],
+      "student_ids": [
+        "STU-0095",
+        "STU-0096",
+        "STU-0097",
+        "STU-0100",
+        "STU-0101",
+        "STU-0102",
+        "STU-0103",
+        "STU-0106",
+        "STU-0112",
+        "STU-0113",
+        "STU-0120",
+        "STU-0125",
+        "STU-0126",
+        "STU-0127",
+        "STU-0130",
+        "STU-0132",
+        "STU-0135",
+        "STU-0139",
+        "STU-0143",
+        "STU-0147",
+        "STU-0150",
+        "STU-0152",
+        "STU-0154",
+        "STU-0155",
+        "STU-0157",
+        "STU-0159",
+        "STU-0160",
+        "STU-0161",
+        "STU-0163",
+        "STU-0165",
+        "STU-0166",
+        "STU-0167",
+        "STU-0168",
+        "STU-0171",
+        "STU-0173",
+        "STU-0174",
+        "STU-0175",
+        "STU-0178",
+        "STU-0180",
+        "STU-0186"
+      ]
+    },
+    {
+      "language_group_id": "LG-07",
+      "name": "Malayalam Group 7",
+      "language": "Malayalam",
+      "subject_id": "SUB-03",
+      "weekly_periods": 4,
+      "strength": 40,
+      "class_distribution": {
+        "CLS-05": 14,
+        "CLS-06": 25,
+        "CLS-07": 1
+      },
+      "class_ids": [
+        "CLS-05",
+        "CLS-06",
+        "CLS-07"
+      ],
+      "student_ids": [
+        "STU-0190",
+        "STU-0196",
+        "STU-0197",
+        "STU-0200",
+        "STU-0202",
+        "STU-0203",
+        "STU-0204",
+        "STU-0205",
+        "STU-0214",
+        "STU-0215",
+        "STU-0216",
+        "STU-0219",
+        "STU-0222",
+        "STU-0224",
+        "STU-0228",
+        "STU-0230",
+        "STU-0231",
+        "STU-0232",
+        "STU-0233",
+        "STU-0235",
+        "STU-0236",
+        "STU-0237",
+        "STU-0240",
+        "STU-0241",
+        "STU-0243",
+        "STU-0244",
+        "STU-0245",
+        "STU-0247",
+        "STU-0248",
+        "STU-0249",
+        "STU-0250",
+        "STU-0251",
+        "STU-0254",
+        "STU-0256",
+        "STU-0258",
+        "STU-0259",
+        "STU-0266",
+        "STU-0270",
+        "STU-0271",
+        "STU-0276"
+      ]
+    },
+    {
+      "language_group_id": "LG-08",
+      "name": "Malayalam Group 8",
+      "language": "Malayalam",
+      "subject_id": "SUB-03",
+      "weekly_periods": 4,
+      "strength": 39,
+      "class_distribution": {
+        "CLS-07": 17,
+        "CLS-08": 21,
+        "CLS-09": 1
+      },
+      "class_ids": [
+        "CLS-07",
+        "CLS-08",
+        "CLS-09"
+      ],
+      "student_ids": [
+        "STU-0280",
+        "STU-0284",
+        "STU-0285",
+        "STU-0286",
+        "STU-0289",
+        "STU-0290",
+        "STU-0291",
+        "STU-0292",
+        "STU-0298",
+        "STU-0301",
+        "STU-0302",
+        "STU-0304",
+        "STU-0306",
+        "STU-0307",
+        "STU-0313",
+        "STU-0314",
+        "STU-0315",
+        "STU-0318",
+        "STU-0323",
+        "STU-0328",
+        "STU-0329",
+        "STU-0331",
+        "STU-0336",
+        "STU-0337",
+        "STU-0340",
+        "STU-0342",
+        "STU-0343",
+        "STU-0345",
+        "STU-0349",
+        "STU-0350",
+        "STU-0352",
+        "STU-0353",
+        "STU-0354",
+        "STU-0355",
+        "STU-0356",
+        "STU-0358",
+        "STU-0360",
+        "STU-0362",
+        "STU-0365"
+      ]
+    },
+    {
+      "language_group_id": "LG-09",
+      "name": "Malayalam Group 9",
+      "language": "Malayalam",
+      "subject_id": "SUB-03",
+      "weekly_periods": 4,
+      "strength": 39,
+      "class_distribution": {
+        "CLS-09": 23,
+        "CLS-10": 16
+      },
+      "class_ids": [
+        "CLS-09",
+        "CLS-10"
+      ],
+      "student_ids": [
+        "STU-0369",
+        "STU-0371",
+        "STU-0372",
+        "STU-0374",
+        "STU-0375",
+        "STU-0377",
+        "STU-0379",
+        "STU-0380",
+        "STU-0381",
+        "STU-0382",
+        "STU-0383",
+        "STU-0385",
+        "STU-0386",
+        "STU-0387",
+        "STU-0388",
+        "STU-0390",
+        "STU-0391",
+        "STU-0392",
+        "STU-0393",
+        "STU-0398",
+        "STU-0401",
+        "STU-0404",
+        "STU-0405",
+        "STU-0409",
+        "STU-0413",
+        "STU-0415",
+        "STU-0416",
+        "STU-0418",
+        "STU-0421",
+        "STU-0424",
+        "STU-0426",
+        "STU-0427",
+        "STU-0428",
+        "STU-0430",
+        "STU-0432",
+        "STU-0433",
+        "STU-0437",
+        "STU-0441",
+        "STU-0442"
+      ]
+    },
+    {
+      "language_group_id": "LG-10",
+      "name": "Sanskrit Group 10",
+      "language": "Sanskrit",
+      "subject_id": "SUB-05",
+      "weekly_periods": 4,
+      "strength": 36,
+      "class_distribution": {
+        "CLS-01": 11,
+        "CLS-02": 7,
+        "CLS-03": 7,
+        "CLS-04": 3,
+        "CLS-05": 8
+      },
+      "class_ids": [
+        "CLS-01",
+        "CLS-02",
+        "CLS-03",
+        "CLS-04",
+        "CLS-05"
+      ],
+      "student_ids": [
+        "STU-0003",
+        "STU-0010",
+        "STU-0013",
+        "STU-0014",
+        "STU-0019",
+        "STU-0022",
+        "STU-0023",
+        "STU-0024",
+        "STU-0034",
+        "STU-0037",
+        "STU-0044",
+        "STU-0053",
+        "STU-0055",
+        "STU-0056",
+        "STU-0058",
+        "STU-0084",
+        "STU-0094",
+        "STU-0098",
+        "STU-0104",
+        "STU-0108",
+        "STU-0124",
+        "STU-0129",
+        "STU-0131",
+        "STU-0133",
+        "STU-0136",
+        "STU-0141",
+        "STU-0146",
+        "STU-0148",
+        "STU-0188",
+        "STU-0192",
+        "STU-0198",
+        "STU-0208",
+        "STU-0210",
+        "STU-0213",
+        "STU-0217",
+        "STU-0220"
+      ]
+    },
+    {
+      "language_group_id": "LG-11",
+      "name": "Sanskrit Group 11",
+      "language": "Sanskrit",
+      "subject_id": "SUB-05",
+      "weekly_periods": 4,
+      "strength": 36,
+      "class_distribution": {
+        "CLS-05": 1,
+        "CLS-06": 5,
+        "CLS-07": 9,
+        "CLS-08": 8,
+        "CLS-09": 5,
+        "CLS-10": 8
+      },
+      "class_ids": [
+        "CLS-05",
+        "CLS-06",
+        "CLS-07",
+        "CLS-08",
+        "CLS-09",
+        "CLS-10"
+      ],
+      "student_ids": [
+        "STU-0226",
+        "STU-0234",
+        "STU-0257",
+        "STU-0261",
+        "STU-0264",
+        "STU-0268",
+        "STU-0281",
+        "STU-0282",
+        "STU-0288",
+        "STU-0295",
+        "STU-0296",
+        "STU-0299",
+        "STU-0303",
+        "STU-0311",
+        "STU-0312",
+        "STU-0319",
+        "STU-0321",
+        "STU-0326",
+        "STU-0332",
+        "STU-0334",
+        "STU-0341",
+        "STU-0347",
+        "STU-0351",
+        "STU-0384",
+        "STU-0394",
+        "STU-0396",
+        "STU-0403",
+        "STU-0406",
+        "STU-0410",
+        "STU-0419",
+        "STU-0420",
+        "STU-0425",
+        "STU-0429",
+        "STU-0435",
+        "STU-0438",
+        "STU-0444"
+      ]
+    }
+  ],
+  "teaching_assignments": [
+    {
+      "assignment_id": "ASG-001",
+      "teacher_id": "TCH-04",
+      "teacher_name": "Divya Suresh",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy",
+      "target_type": "class",
+      "target_id": "CLS-03",
+      "target_name": "+2 Commerce - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-016"
+    },
+    {
+      "assignment_id": "ASG-002",
+      "teacher_id": "TCH-05",
+      "teacher_name": "Nikhil Mohan",
+      "subject_id": "SUB-14",
+      "subject_name": "Accountancy",
+      "target_type": "class",
+      "target_id": "CLS-07",
+      "target_name": "+2 Commerce - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-040"
+    },
+    {
+      "assignment_id": "ASG-003",
+      "teacher_id": "TCH-01",
+      "teacher_name": "Rahul Joseph",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "target_type": "class",
+      "target_id": "CLS-02",
+      "target_name": "+2 Science (Biology) - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-011"
+    },
+    {
+      "assignment_id": "ASG-004",
+      "teacher_id": "TCH-01",
+      "teacher_name": "Rahul Joseph",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "target_type": "class",
+      "target_id": "CLS-06",
+      "target_name": "+2 Science (Biology) - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-035"
+    },
+    {
+      "assignment_id": "ASG-005",
+      "teacher_id": "TCH-01",
+      "teacher_name": "Rahul Joseph",
+      "subject_id": "SUB-10",
+      "subject_name": "Biology",
+      "target_type": "class",
+      "target_id": "CLS-10",
+      "target_name": "+2 Science (Biology) - C",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-059"
+    },
+    {
+      "assignment_id": "ASG-006",
+      "teacher_id": "TCH-04",
+      "teacher_name": "Divya Suresh",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies",
+      "target_type": "class",
+      "target_id": "CLS-03",
+      "target_name": "+2 Commerce - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-015"
+    },
+    {
+      "assignment_id": "ASG-007",
+      "teacher_id": "TCH-05",
+      "teacher_name": "Nikhil Mohan",
+      "subject_id": "SUB-13",
+      "subject_name": "Business Studies",
+      "target_type": "class",
+      "target_id": "CLS-07",
+      "target_name": "+2 Commerce - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-039"
+    },
+    {
+      "assignment_id": "ASG-008",
+      "teacher_id": "TCH-06",
+      "teacher_name": "Devika Unnikrishnan",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "target_type": "class",
+      "target_id": "CLS-01",
+      "target_name": "+2 Science (Computer Science) - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-006"
+    },
+    {
+      "assignment_id": "ASG-009",
+      "teacher_id": "TCH-07",
+      "teacher_name": "Rohit Thomas",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "target_type": "class",
+      "target_id": "CLS-05",
+      "target_name": "+2 Science (Computer Science) - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-030"
+    },
+    {
+      "assignment_id": "ASG-010",
+      "teacher_id": "TCH-06",
+      "teacher_name": "Devika Unnikrishnan",
+      "subject_id": "SUB-11",
+      "subject_name": "Computer Science",
+      "target_type": "class",
+      "target_id": "CLS-09",
+      "target_name": "+2 Science (Computer Science) - C",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-054"
+    },
+    {
+      "assignment_id": "ASG-011",
+      "teacher_id": "TCH-23",
+      "teacher_name": "Divya George",
+      "subject_id": "SUB-16",
+      "subject_name": "History",
+      "target_type": "class",
+      "target_id": "CLS-04",
+      "target_name": "+2 Humanities - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-021"
+    },
+    {
+      "assignment_id": "ASG-012",
+      "teacher_id": "TCH-22",
+      "teacher_name": "Arun Krishnan",
+      "subject_id": "SUB-16",
+      "subject_name": "History",
+      "target_type": "class",
+      "target_id": "CLS-08",
+      "target_name": "+2 Humanities - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-045"
+    },
+    {
+      "assignment_id": "ASG-013",
+      "teacher_id": "TCH-17",
+      "teacher_name": "Nikhil Mathew",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-01",
+      "target_name": "+2 Science (Computer Science) - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-005"
+    },
+    {
+      "assignment_id": "ASG-014",
+      "teacher_id": "TCH-18",
+      "teacher_name": "Aiswarya Menon",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-02",
+      "target_name": "+2 Science (Biology) - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-012"
+    },
+    {
+      "assignment_id": "ASG-015",
+      "teacher_id": "TCH-17",
+      "teacher_name": "Nikhil Mathew",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-05",
+      "target_name": "+2 Science (Computer Science) - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-029"
+    },
+    {
+      "assignment_id": "ASG-016",
+      "teacher_id": "TCH-18",
+      "teacher_name": "Aiswarya Menon",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-06",
+      "target_name": "+2 Science (Biology) - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-036"
+    },
+    {
+      "assignment_id": "ASG-017",
+      "teacher_id": "TCH-17",
+      "teacher_name": "Nikhil Mathew",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-09",
+      "target_name": "+2 Science (Computer Science) - C",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-053"
+    },
+    {
+      "assignment_id": "ASG-018",
+      "teacher_id": "TCH-18",
+      "teacher_name": "Aiswarya Menon",
+      "subject_id": "SUB-09",
+      "subject_name": "Mathematics",
+      "target_type": "class",
+      "target_id": "CLS-10",
+      "target_name": "+2 Science (Biology) - C",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-060"
+    },
+    {
+      "assignment_id": "ASG-019",
+      "teacher_id": "TCH-23",
+      "teacher_name": "Divya George",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science",
+      "target_type": "class",
+      "target_id": "CLS-04",
+      "target_name": "+2 Humanities - A",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-022"
+    },
+    {
+      "assignment_id": "ASG-020",
+      "teacher_id": "TCH-22",
+      "teacher_name": "Arun Krishnan",
+      "subject_id": "SUB-17",
+      "subject_name": "Political Science",
+      "target_type": "class",
+      "target_id": "CLS-08",
+      "target_name": "+2 Humanities - B",
+      "weekly_periods": 7,
+      "class_subject_id": "CS-046"
+    },
+    {
+      "assignment_id": "ASG-021",
+      "teacher_id": "TCH-03",
+      "teacher_name": "Sandeep Mathew",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-01",
+      "target_name": "+2 Science (Computer Science) - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-004"
+    },
+    {
+      "assignment_id": "ASG-022",
+      "teacher_id": "TCH-02",
+      "teacher_name": "Fathima Pillai",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-02",
+      "target_name": "+2 Science (Biology) - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-010"
+    },
+    {
+      "assignment_id": "ASG-023",
+      "teacher_id": "TCH-03",
+      "teacher_name": "Sandeep Mathew",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-05",
+      "target_name": "+2 Science (Computer Science) - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-028"
+    },
+    {
+      "assignment_id": "ASG-024",
+      "teacher_id": "TCH-02",
+      "teacher_name": "Fathima Pillai",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-06",
+      "target_name": "+2 Science (Biology) - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-034"
+    },
+    {
+      "assignment_id": "ASG-025",
+      "teacher_id": "TCH-03",
+      "teacher_name": "Sandeep Mathew",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-09",
+      "target_name": "+2 Science (Computer Science) - C",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-052"
+    },
+    {
+      "assignment_id": "ASG-026",
+      "teacher_id": "TCH-02",
+      "teacher_name": "Fathima Pillai",
+      "subject_id": "SUB-08",
+      "subject_name": "Chemistry",
+      "target_type": "class",
+      "target_id": "CLS-10",
+      "target_name": "+2 Science (Biology) - C",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-058"
+    },
+    {
+      "assignment_id": "ASG-027",
+      "teacher_id": "TCH-07",
+      "teacher_name": "Rohit Thomas",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application",
+      "target_type": "class",
+      "target_id": "CLS-03",
+      "target_name": "+2 Commerce - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-018"
+    },
+    {
+      "assignment_id": "ASG-028",
+      "teacher_id": "TCH-06",
+      "teacher_name": "Devika Unnikrishnan",
+      "subject_id": "SUB-12",
+      "subject_name": "Computer Application",
+      "target_type": "class",
+      "target_id": "CLS-07",
+      "target_name": "+2 Commerce - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-042"
+    },
+    {
+      "assignment_id": "ASG-029",
+      "teacher_id": "TCH-09",
+      "teacher_name": "Anjali Sasidharan",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "target_type": "class",
+      "target_id": "CLS-03",
+      "target_name": "+2 Commerce - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-017"
+    },
+    {
+      "assignment_id": "ASG-030",
+      "teacher_id": "TCH-08",
+      "teacher_name": "Rahul Unnikrishnan",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "target_type": "class",
+      "target_id": "CLS-04",
+      "target_name": "+2 Humanities - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-023"
+    },
+    {
+      "assignment_id": "ASG-031",
+      "teacher_id": "TCH-09",
+      "teacher_name": "Anjali Sasidharan",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "target_type": "class",
+      "target_id": "CLS-07",
+      "target_name": "+2 Commerce - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-041"
+    },
+    {
+      "assignment_id": "ASG-032",
+      "teacher_id": "TCH-08",
+      "teacher_name": "Rahul Unnikrishnan",
+      "subject_id": "SUB-15",
+      "subject_name": "Economics",
+      "target_type": "class",
+      "target_id": "CLS-08",
+      "target_name": "+2 Humanities - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-047"
+    },
+    {
+      "assignment_id": "ASG-033",
+      "teacher_id": "TCH-20",
+      "teacher_name": "Sreejith Pillai",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-01",
+      "target_name": "+2 Science (Computer Science) - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-003"
+    },
+    {
+      "assignment_id": "ASG-034",
+      "teacher_id": "TCH-19",
+      "teacher_name": "Deepak Das",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-02",
+      "target_name": "+2 Science (Biology) - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-009"
+    },
+    {
+      "assignment_id": "ASG-035",
+      "teacher_id": "TCH-20",
+      "teacher_name": "Sreejith Pillai",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-05",
+      "target_name": "+2 Science (Computer Science) - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-027"
+    },
+    {
+      "assignment_id": "ASG-036",
+      "teacher_id": "TCH-19",
+      "teacher_name": "Deepak Das",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-06",
+      "target_name": "+2 Science (Biology) - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-033"
+    },
+    {
+      "assignment_id": "ASG-037",
+      "teacher_id": "TCH-20",
+      "teacher_name": "Sreejith Pillai",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-09",
+      "target_name": "+2 Science (Computer Science) - C",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-051"
+    },
+    {
+      "assignment_id": "ASG-038",
+      "teacher_id": "TCH-19",
+      "teacher_name": "Deepak Das",
+      "subject_id": "SUB-07",
+      "subject_name": "Physics",
+      "target_type": "class",
+      "target_id": "CLS-10",
+      "target_name": "+2 Science (Biology) - C",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-057"
+    },
+    {
+      "assignment_id": "ASG-039",
+      "teacher_id": "TCH-23",
+      "teacher_name": "Divya George",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology",
+      "target_type": "class",
+      "target_id": "CLS-04",
+      "target_name": "+2 Humanities - A",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-024"
+    },
+    {
+      "assignment_id": "ASG-040",
+      "teacher_id": "TCH-22",
+      "teacher_name": "Arun Krishnan",
+      "subject_id": "SUB-18",
+      "subject_name": "Sociology",
+      "target_type": "class",
+      "target_id": "CLS-08",
+      "target_name": "+2 Humanities - B",
+      "weekly_periods": 6,
+      "class_subject_id": "CS-048"
+    },
+    {
+      "assignment_id": "ASG-041",
+      "teacher_id": "TCH-10",
+      "teacher_name": "Indu Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-01",
+      "target_name": "+2 Science (Computer Science) - A",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-001"
+    },
+    {
+      "assignment_id": "ASG-042",
+      "teacher_id": "TCH-11",
+      "teacher_name": "Sandeep Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-02",
+      "target_name": "+2 Science (Biology) - A",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-007"
+    },
+    {
+      "assignment_id": "ASG-043",
+      "teacher_id": "TCH-12",
+      "teacher_name": "Anagha Bhaskaran",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-03",
+      "target_name": "+2 Commerce - A",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-013"
+    },
+    {
+      "assignment_id": "ASG-044",
+      "teacher_id": "TCH-10",
+      "teacher_name": "Indu Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-04",
+      "target_name": "+2 Humanities - A",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-019"
+    },
+    {
+      "assignment_id": "ASG-045",
+      "teacher_id": "TCH-11",
+      "teacher_name": "Sandeep Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-05",
+      "target_name": "+2 Science (Computer Science) - B",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-025"
+    },
+    {
+      "assignment_id": "ASG-046",
+      "teacher_id": "TCH-12",
+      "teacher_name": "Anagha Bhaskaran",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-06",
+      "target_name": "+2 Science (Biology) - B",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-031"
+    },
+    {
+      "assignment_id": "ASG-047",
+      "teacher_id": "TCH-10",
+      "teacher_name": "Indu Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-07",
+      "target_name": "+2 Commerce - B",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-037"
+    },
+    {
+      "assignment_id": "ASG-048",
+      "teacher_id": "TCH-11",
+      "teacher_name": "Sandeep Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-08",
+      "target_name": "+2 Humanities - B",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-043"
+    },
+    {
+      "assignment_id": "ASG-049",
+      "teacher_id": "TCH-12",
+      "teacher_name": "Anagha Bhaskaran",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-09",
+      "target_name": "+2 Science (Computer Science) - C",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-049"
+    },
+    {
+      "assignment_id": "ASG-050",
+      "teacher_id": "TCH-10",
+      "teacher_name": "Indu Suresh",
+      "subject_id": "SUB-01",
+      "subject_name": "English",
+      "target_type": "class",
+      "target_id": "CLS-10",
+      "target_name": "+2 Science (Biology) - C",
+      "weekly_periods": 5,
+      "class_subject_id": "CS-055"
+    },
+    {
+      "assignment_id": "ASG-051",
+      "teacher_id": "TCH-13",
+      "teacher_name": "Nithya Joseph",
+      "subject_id": "SUB-06",
+      "subject_name": "French",
+      "target_type": "language_group",
+      "target_id": "LG-01",
+      "target_name": "French Group 1",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-052",
+      "teacher_id": "TCH-14",
+      "teacher_name": "Vishnu Suresh",
+      "subject_id": "SUB-04",
+      "subject_name": "Hindi",
+      "target_type": "language_group",
+      "target_id": "LG-02",
+      "target_name": "Hindi Group 2",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-053",
+      "teacher_id": "TCH-14",
+      "teacher_name": "Vishnu Suresh",
+      "subject_id": "SUB-04",
+      "subject_name": "Hindi",
+      "target_type": "language_group",
+      "target_id": "LG-03",
+      "target_name": "Hindi Group 3",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-054",
+      "teacher_id": "TCH-14",
+      "teacher_name": "Vishnu Suresh",
+      "subject_id": "SUB-04",
+      "subject_name": "Hindi",
+      "target_type": "language_group",
+      "target_id": "LG-04",
+      "target_name": "Hindi Group 4",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-055",
+      "teacher_id": "TCH-15",
+      "teacher_name": "Meera Mathew",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam",
+      "target_type": "language_group",
+      "target_id": "LG-05",
+      "target_name": "Malayalam Group 5",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-056",
+      "teacher_id": "TCH-16",
+      "teacher_name": "Lakshmi Raj",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam",
+      "target_type": "language_group",
+      "target_id": "LG-06",
+      "target_name": "Malayalam Group 6",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-057",
+      "teacher_id": "TCH-15",
+      "teacher_name": "Meera Mathew",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam",
+      "target_type": "language_group",
+      "target_id": "LG-07",
+      "target_name": "Malayalam Group 7",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-058",
+      "teacher_id": "TCH-16",
+      "teacher_name": "Lakshmi Raj",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam",
+      "target_type": "language_group",
+      "target_id": "LG-08",
+      "target_name": "Malayalam Group 8",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-059",
+      "teacher_id": "TCH-15",
+      "teacher_name": "Meera Mathew",
+      "subject_id": "SUB-03",
+      "subject_name": "Malayalam",
+      "target_type": "language_group",
+      "target_id": "LG-09",
+      "target_name": "Malayalam Group 9",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-060",
+      "teacher_id": "TCH-21",
+      "teacher_name": "Lakshmi George",
+      "subject_id": "SUB-05",
+      "subject_name": "Sanskrit",
+      "target_type": "language_group",
+      "target_id": "LG-10",
+      "target_name": "Sanskrit Group 10",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    },
+    {
+      "assignment_id": "ASG-061",
+      "teacher_id": "TCH-21",
+      "teacher_name": "Lakshmi George",
+      "subject_id": "SUB-05",
+      "subject_name": "Sanskrit",
+      "target_type": "language_group",
+      "target_id": "LG-11",
+      "target_name": "Sanskrit Group 11",
+      "weekly_periods": 4,
+      "class_subject_id": null
+    }
+  ],
+  "summary": {
+    "classes": 10,
+    "students": 444,
+    "teachers": 23,
+    "subjects": 18,
+    "class_subject_rows": 60,
+    "teacher_subject_rows": 31,
+    "language_groups": 11,
+    "teaching_assignments": 61,
+    "total_weekly_slots": 35,
+    "total_taught_periods": 354,
+    "teacher_load": {
+      "min": 4,
+      "max": 21,
+      "average": 15.4
+    },
+    "students_per_second_language": {
+      "French": 41,
+      "Hindi": 133,
+      "Malayalam": 198,
+      "Sanskrit": 72
+    }
+  }
+}
