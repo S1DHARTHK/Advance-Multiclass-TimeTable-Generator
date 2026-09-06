@@ -20,7 +20,7 @@ function cellLabel(entry) {
   return { where: entry.classIds[0] ?? "", subject: entry.subject };
 }
 
-export default function TeacherSchedule({ solution, teacher, conflicts }) {
+export default function TeacherSchedule({ solution, teacher, conflicts, onEdit }) {
   const { days, periods, lunchAfterIndex } = solution;
   const [detail, setDetail] = useState(null);
 
@@ -115,6 +115,17 @@ export default function TeacherSchedule({ solution, teacher, conflicts }) {
                             }
                           >
                             ⚠ conflict
+                          </button>
+                        )}
+
+                        {entries.length > 0 && onEdit && (
+                          <button
+                            type="button"
+                            className="tt-edit"
+                            onClick={() => onEdit({ day, period })}
+                            title="Find a better slot for this lesson"
+                          >
+                            Edit
                           </button>
                         )}
                       </td>

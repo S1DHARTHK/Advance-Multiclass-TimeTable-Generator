@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import ClashStatus from "./components/ClashStatus";
 import ClassTimetable from "./components/ClassTimetable";
+import EditDialog from "./components/EditDialog";
 import SubjectRequirements from "./components/SubjectRequirements";
 import TeacherSchedule from "./components/TeacherSchedule";
-import { loadSolution } from "./api/solutionApi";
+import { loadSolution, normalizeSolution } from "./api/solutionApi";
 import { validateSolution } from "./validation";
 
 const ALL_CLASSES = "ALL";
@@ -12,27 +13,73 @@ const CLASS_VIEW = "class";
 const TEACHER_VIEW = "teacher";
 
 export default function App() {
-  // The generated timetable never changes while the page is open, so it is
-  // read and checked once. Swap loadSolution() for a fetch when a backend
-  // exists; nothing else here changes.
-  const solution = useMemo(() => loadSolution(), []);
-  const validation = useMemo(() => validateSolution(solution), [solution]);
+  const [solution, setSolution] = useState(null);
+  const [live, setLive] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [notice, setNotice] = useState(null);
 
-  const teacherList = useMemo(
-    () =>
-      Object.values(solution.teachers).sort((a, b) =>
+  const [view, setView] = useState(CLASS_VIEW);
+  const [selectedClass, setSelectedClass] = useState(ALL_CLASSES);
+  const [selectedTeacher, setSelectedTeacher] = useState("");
+  const [editing, setEditing] = useState(null);
+
+  // The timetable comes from the editor service when it is running, and
+  // from the bundled file otherwise (read-only).
+  useEffect(() => {
+    let cancelled = false;
+
+    loadSolution().then(({ solution: loaded, live: isLive }) => {
+      if (cancelled) return;
+      setSolution(loaded);
+      setLive(isLive);
+      setLoading(false);
+      setSelectedClass(loaded.classes[0]?.id ?? ALL_CLASSES);
+      const first = Object.values(loaded.teachers).sort((a, b) =>
         a.name.localeCompare(b.name)
-      ),
+      )[0];
+      setSelectedTeacher(first?.id ?? "");
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const validation = useMemo(
+    () => (solution ? validateSolution(solution) : null),
     [solution]
   );
 
-  const [view, setView] = useState(CLASS_VIEW);
-  const [selectedClass, setSelectedClass] = useState(
-    solution.classes[0]?.id ?? ALL_CLASSES
+  const teacherList = useMemo(
+    () =>
+      solution
+        ? Object.values(solution.teachers).sort((a, b) =>
+            a.name.localeCompare(b.name)
+          )
+        : [],
+    [solution]
   );
-  const [selectedTeacher, setSelectedTeacher] = useState(
-    teacherList[0]?.id ?? ""
-  );
+
+  // One state update refreshes every view, class and teacher alike, because
+  // they all read from this object.
+  const handleApplied = useCallback((result) => {
+    setSolution(normalizeSolution(result.solution));
+    setEditing(null);
+    setNotice(
+      `Applied: ${result.applied.summary} — timetable now ${result.report.hard_total} violations, soft ${result.report.soft_total.toFixed(2)}.`
+    );
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="page">
+        <div className="panel panel--empty">
+          <div className="spinner" aria-hidden="true" />
+          <h2>Loading timetable</h2>
+        </div>
+      </div>
+    );
+  }
 
   const shownClasses =
     selectedClass === ALL_CLASSES
@@ -110,6 +157,26 @@ export default function App() {
       <main className="content">
         <ClashStatus validation={validation} softReport={solution.softReport} />
 
+        {notice && (
+          <p className="notice notice--ok">
+            {notice}
+            <button
+              type="button"
+              className="notice__close"
+              onClick={() => setNotice(null)}
+            >
+              Dismiss
+            </button>
+          </p>
+        )}
+
+        {!live && (
+          <p className="notice">
+            Showing the saved timetable. Start the editor service
+            (<code>python editor_server.py</code>) to edit lessons.
+          </p>
+        )}
+
         {view === CLASS_VIEW &&
           shownClasses.map((klass) => (
             <ClassTimetable
@@ -120,7 +187,6 @@ export default function App() {
             />
           ))}
 
-        {/* requirements belong to one class, so they show for a single class */}
         {view === CLASS_VIEW && selectedClass !== ALL_CLASSES && (
           <SubjectRequirements
             rows={validation.requirementsByClass[selectedClass] ?? []}
@@ -132,9 +198,20 @@ export default function App() {
             solution={solution}
             teacher={teacher}
             conflicts={validation.teacherCells[teacher.id]}
+            onEdit={live ? (cell) => setEditing({ ...cell, teacherId: teacher.id }) : null}
           />
         )}
       </main>
+
+      {editing && (
+        <EditDialog
+          teacherId={editing.teacherId}
+          day={editing.day}
+          period={editing.period}
+          onClose={() => setEditing(null)}
+          onApplied={handleApplied}
+        />
+      )}
     </div>
   );
 }

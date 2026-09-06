@@ -12,6 +12,7 @@
  */
 
 import rawSolution from "../data/timetableSolution.json";
+import { editorApi } from "./editorApi";
 
 /** "Vishnu Suresh" -> "V. Suresh", to keep cells narrow. */
 function shortName(name) {
@@ -130,6 +131,26 @@ export function normalizeSolution(raw) {
   };
 }
 
-export function loadSolution() {
+/**
+ * Load the timetable, preferring the live editor service.
+ *
+ * With the service running the timetable can be edited; without it the
+ * bundled file is still shown, read-only. `live` says which happened.
+ */
+export async function loadSolution() {
+  try {
+    const raw = await editorApi.solution();
+    return { solution: normalizeSolution(raw), live: true, error: null };
+  } catch (error) {
+    return {
+      solution: normalizeSolution(rawSolution),
+      live: false,
+      error: error.message,
+    };
+  }
+}
+
+/** The bundled snapshot, without any network call. */
+export function loadBundledSolution() {
   return normalizeSolution(rawSolution);
 }
