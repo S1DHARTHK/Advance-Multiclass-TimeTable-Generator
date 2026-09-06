@@ -1,17 +1,16 @@
 /**
- * "Where else could this lesson go?"
+ * The complete ranked list of alternative slots.
  *
- * Shows the lesson currently in the chosen slot and the best alternatives
- * the editor service found. Every option was already checked against the
- * full hard-constraint set server-side; the numbers shown come from the
- * same fitness function the timetable was generated with.
+ * The grid already shows the options shaded in place; this is the full
+ * table behind the "All options" button - same data, same shading, but
+ * every candidate with its numbers side by side for comparison.
  *
  * Nothing is changed until Apply Change is pressed.
  */
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { editorApi } from "../api/editorApi";
+import { optionKey, tintFor } from "./TeacherSchedule";
 
 const COMPONENT_LABELS = {
   period_priority: "Period priority",
@@ -21,94 +20,32 @@ const COMPONENT_LABELS = {
   gaps_and_blocks: "Gaps & blocks",
 };
 
-function Impact({ value, scale }) {
-  const width = scale ? Math.min(100, (Math.abs(value) / scale) * 100) : 0;
-  const better = value >= 0;
-
-  return (
-    <span className="impact">
-      <span className="impact__track">
-        <span
-          className={`impact__fill ${better ? "is-better" : "is-worse"}`}
-          style={{ width: `${Math.max(width, 3)}%` }}
-        />
-      </span>
-      <span className={`impact__value ${better ? "is-better" : "is-worse"}`}>
-        {value >= 0 ? "+" : ""}
-        {value.toFixed(2)}
-      </span>
-    </span>
-  );
-}
-
-export default function EditDialog({ teacherId, day, period, onClose, onApplied }) {
-  const [state, setState] = useState({ status: "loading", data: null, error: null });
+export default function EditDialog({ editor, onClose }) {
+  const session = editor.session;
+  const ready = session?.status === "ready" ? session : null;
   const [chosen, setChosen] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    let cancelled = false;
+  const options = ready?.data.candidates ?? [];
+  const scores = options.map((option) => option.fitness_delta);
+  const best = Math.max(...scores, 0);
+  const worst = Math.min(...scores, 0);
+  const span = best - worst;
 
-    editorApi
-      .candidates({ teacherId, day, period })
-      .then((data) => {
-        if (!cancelled) setState({ status: "ready", data, error: null });
-      })
-      .catch((err) => {
-        if (!cancelled)
-          setState({ status: "error", data: null, error: err.message });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [teacherId, day, period]);
-
-  const data = state.data;
-  const options = data?.candidates ?? [];
-  const scale = Math.max(
-    0.01,
-    ...options.map((option) => Math.abs(option.soft_delta))
-  );
-
-  async function handlePreview() {
-    if (!chosen) return;
-    setBusy(true);
-    setError(null);
-    try {
-      setPreview(await editorApi.preview(chosen.change));
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function handleApply() {
-    if (!chosen) return;
-    setBusy(true);
-    setError(null);
-    try {
-      const result = await editorApi.apply(chosen.change);
-      onApplied(result);
-    } catch (err) {
-      setError(err.message);
-      setBusy(false);
-    }
-  }
+  const preview =
+    chosen && editor.preview?.key === optionKey(chosen)
+      ? editor.preview.data
+      : null;
 
   return (
-    <div className="modal" role="dialog" aria-modal="true" aria-label="Edit lesson">
-      <div className="modal__box">
+    <div className="modal" role="dialog" aria-modal="true" aria-label="All options">
+      <div className="modal__box modal__box--wide">
         <header className="modal__head">
           <div>
-            <h2 className="modal__title">Edit lesson</h2>
-            {data && (
+            <h2 className="modal__title">All alternative slots</h2>
+            {ready && (
               <p className="modal__sub">
-                {data.current.subject} · {data.current.target} — currently{" "}
-                {data.current.day} {data.current.period}
+                {ready.data.current.subject} · {ready.data.current.target} —
+                currently {ready.data.current.day} {ready.data.current.period}
               </p>
             )}
           </div>
@@ -118,21 +55,22 @@ export default function EditDialog({ teacherId, day, period, onClose, onApplied 
         </header>
 
         <div className="modal__body">
-          {state.status === "loading" && (
+          {session?.status === "loading" && (
             <p className="modal__note">Checking every slot in the week…</p>
           )}
 
-          {state.status === "error" && (
-            <p className="modal__error">{state.error}</p>
+          {session?.status === "error" && (
+            <p className="modal__error">{session.error}</p>
           )}
 
-          {state.status === "ready" && (
+          {ready && (
             <>
               <p className="modal__note">
-                Checked {data.considered} slots · {data.rejected} ruled out by
-                hard constraints or structure · showing the best{" "}
-                {options.length}. Timetable now: {data.baseline.hard_total}{" "}
-                violations, soft {data.baseline.soft_total.toFixed(2)}.
+                Checked {ready.data.considered} slots · {ready.data.rejected}{" "}
+                ruled out by hard constraints or structure ·{" "}
+                {options.length} valid. Timetable now:{" "}
+                {ready.data.baseline.hard_total} violations, soft{" "}
+                {ready.data.baseline.soft_total.toFixed(2)}.
               </p>
 
               {options.length === 0 ? (
@@ -140,66 +78,80 @@ export default function EditDialog({ teacherId, day, period, onClose, onApplied 
                   No alternative slot keeps every hard constraint satisfied.
                 </p>
               ) : (
-                <ul className="options">
-                  {options.map((option, index) => {
-                    const id = `${option.day}-${option.period}-${index}`;
-                    const active = chosen === option;
+                <div className="optiontable__scroll">
+                  <table className="optiontable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Slot</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Hard</th>
+                        <th scope="col">Overall</th>
+                        <th scope="col">Fairness</th>
+                        <th scope="col">What happens</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {options.map((option, index) => {
+                        const ratio =
+                          span > 1e-9 ? (best - option.fitness_delta) / span : 0;
+                        const active =
+                          chosen && optionKey(chosen) === optionKey(option);
 
-                    return (
-                      <li key={id}>
-                        <label
-                          className={`option ${active ? "is-active" : ""}`}
-                        >
-                          <input
-                            type="radio"
-                            name="slot-option"
-                            className="option__radio"
-                            checked={active}
-                            onChange={() => {
-                              setChosen(option);
-                              setPreview(null);
-                              setError(null);
-                            }}
-                          />
-
-                          <span className="option__main">
-                            <span className="option__top">
-                              <strong className="option__slot">
-                                {option.day} {option.period}
-                              </strong>
+                        return (
+                          <tr
+                            key={optionKey(option)}
+                            className={`optiontable__row ${active ? "is-active" : ""}`}
+                            onClick={() => setChosen(option)}
+                          >
+                            <td>
                               <span
-                                className={`badge badge--${option.kind}`}
-                              >
+                                className="swatch"
+                                style={tintFor(ratio)}
+                                aria-hidden="true"
+                              />
+                              {index + 1}
+                            </td>
+                            <td className="optiontable__slot">
+                              {option.day} {option.period}
+                            </td>
+                            <td>
+                              <span className={`badge badge--${option.kind}`}>
                                 {option.kind === "swap" ? "Swap" : "Move"}
                               </span>
-                              <span className="badge badge--ok">
-                                ✓ No clashes
-                              </span>
-                            </span>
-
-                            <span className="option__summary">
-                              {option.summary}
-                            </span>
-
-                            <span className="option__metrics">
-                              <span className="option__metric">
-                                Overall
-                                <Impact value={option.soft_delta} scale={scale} />
-                              </span>
-                              <span className="option__metric">
-                                Fairness
-                                <Impact
-                                  value={option.components.teacher_workload * 15}
-                                  scale={scale}
-                                />
-                              </span>
-                            </span>
-                          </span>
-                        </label>
-                      </li>
-                    );
-                  })}
-                </ul>
+                            </td>
+                            <td>
+                              <span className="badge badge--ok">✓</span>
+                            </td>
+                            <td
+                              className={
+                                option.soft_delta >= 0 ? "is-better" : "is-worse"
+                              }
+                            >
+                              {option.soft_delta >= 0 ? "+" : ""}
+                              {option.soft_delta.toFixed(2)}
+                            </td>
+                            <td
+                              className={
+                                option.components.teacher_workload >= 0
+                                  ? "is-better"
+                                  : "is-worse"
+                              }
+                            >
+                              {option.components.teacher_workload >= 0 ? "+" : ""}
+                              {(option.components.teacher_workload * 15).toFixed(2)}
+                            </td>
+                            <td className="optiontable__what">
+                              {option.partner
+                                ? `${option.partner.subject} → ${option.partner.moves_to.day} ${option.partner.moves_to.period}`
+                                : "free period"}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               )}
 
               {preview && (
@@ -226,30 +178,32 @@ export default function EditDialog({ teacherId, day, period, onClose, onApplied 
                 </div>
               )}
 
-              {error && <p className="modal__error">{error}</p>}
+              {editor.error && <p className="modal__error">{editor.error}</p>}
             </>
           )}
         </div>
 
         <footer className="modal__foot">
+          <span className="modal__chosen">
+            {chosen
+              ? `Selected: ${chosen.day} ${chosen.period}`
+              : "Select a row to preview or apply"}
+          </span>
           <button
             type="button"
             className="button"
-            onClick={handlePreview}
-            disabled={!chosen || busy}
+            onClick={() => editor.previewOption(chosen)}
+            disabled={!chosen || editor.busy}
           >
             Preview
           </button>
           <button
             type="button"
             className="button button--apply"
-            onClick={handleApply}
-            disabled={!chosen || busy}
+            onClick={() => editor.applyOption(chosen)}
+            disabled={!chosen || editor.busy}
           >
-            {busy ? "Working…" : "Apply Change"}
-          </button>
-          <button type="button" className="button" onClick={onClose}>
-            Cancel
+            {editor.busy ? "Working…" : "Apply Change"}
           </button>
         </footer>
       </div>

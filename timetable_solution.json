@@ -20,7 +20,7 @@
     "lunch_is_a_period": false
   },
   "report": {
-    "fitness": 82.53645457491035,
+    "fitness": 82.56129929540724,
     "hard_violations": {
       "class_clash": 0,
       "teacher_clash": 0,
@@ -35,7 +35,7 @@
       "period_priority": 0.7965517241379311,
       "class_teacher_first_period": 0.92,
       "subject_distribution": 0.7733333333333333,
-      "teacher_workload": 0.8917423156553591,
+      "teacher_workload": 0.8933986303551521,
       "gaps_and_blocks": 0.8365217391304348
     },
     "soft_weights": {
@@ -45,7 +45,7 @@
       "teacher_workload": 15.0,
       "gaps_and_blocks": 20.0
     },
-    "soft_total": 82.53645457491035,
+    "soft_total": 82.56129929540724,
     "hard_penalty": 500.0
   },
   "classes": {
@@ -5960,24 +5960,24 @@
           ],
           "P2": [
             {
-              "unit_id": "ASG-004",
+              "unit_id": "ASG-016",
               "kind": "class",
-              "subject": "Biology",
+              "subject": "Mathematics",
               "teachers": [
-                "TCH-02"
+                "TCH-18"
               ],
               "classes": [
                 "CLS-06"
               ],
               "groups": [],
               "assignments": [
-                "ASG-004"
+                "ASG-016"
               ],
               "members": [
                 {
-                  "assignment_id": "ASG-004",
-                  "teacher_id": "TCH-02",
-                  "subject": "Biology",
+                  "assignment_id": "ASG-016",
+                  "teacher_id": "TCH-18",
+                  "subject": "Mathematics",
                   "target_type": "class",
                   "target_id": "CLS-06",
                   "group_id": null
@@ -6195,24 +6195,24 @@
           ],
           "P2": [
             {
-              "unit_id": "ASG-016",
+              "unit_id": "ASG-004",
               "kind": "class",
-              "subject": "Mathematics",
+              "subject": "Biology",
               "teachers": [
-                "TCH-18"
+                "TCH-02"
               ],
               "classes": [
                 "CLS-06"
               ],
               "groups": [],
               "assignments": [
-                "ASG-016"
+                "ASG-004"
               ],
               "members": [
                 {
-                  "assignment_id": "ASG-016",
-                  "teacher_id": "TCH-18",
-                  "subject": "Mathematics",
+                  "assignment_id": "ASG-004",
+                  "teacher_id": "TCH-02",
+                  "subject": "Biology",
                   "target_type": "class",
                   "target_id": "CLS-06",
                   "group_id": null
@@ -12284,33 +12284,7 @@
               ]
             }
           ],
-          "P2": [
-            {
-              "unit_id": "ASG-004",
-              "kind": "class",
-              "subject": "Biology",
-              "teachers": [
-                "TCH-02"
-              ],
-              "classes": [
-                "CLS-06"
-              ],
-              "groups": [],
-              "assignments": [
-                "ASG-004"
-              ],
-              "members": [
-                {
-                  "assignment_id": "ASG-004",
-                  "teacher_id": "TCH-02",
-                  "subject": "Biology",
-                  "target_type": "class",
-                  "target_id": "CLS-06",
-                  "group_id": null
-                }
-              ]
-            }
-          ],
+          "P2": [],
           "P3": [],
           "P4": [],
           "P5": [],
@@ -12345,7 +12319,33 @@
               ]
             }
           ],
-          "P2": [],
+          "P2": [
+            {
+              "unit_id": "ASG-004",
+              "kind": "class",
+              "subject": "Biology",
+              "teachers": [
+                "TCH-02"
+              ],
+              "classes": [
+                "CLS-06"
+              ],
+              "groups": [],
+              "assignments": [
+                "ASG-004"
+              ],
+              "members": [
+                {
+                  "assignment_id": "ASG-004",
+                  "teacher_id": "TCH-02",
+                  "subject": "Biology",
+                  "target_type": "class",
+                  "target_id": "CLS-06",
+                  "group_id": null
+                }
+              ]
+            }
+          ],
           "P3": [],
           "P4": [],
           "P5": [],
@@ -19561,7 +19561,33 @@
       "timetable": {
         "Monday": {
           "P1": [],
-          "P2": [],
+          "P2": [
+            {
+              "unit_id": "ASG-016",
+              "kind": "class",
+              "subject": "Mathematics",
+              "teachers": [
+                "TCH-18"
+              ],
+              "classes": [
+                "CLS-06"
+              ],
+              "groups": [],
+              "assignments": [
+                "ASG-016"
+              ],
+              "members": [
+                {
+                  "assignment_id": "ASG-016",
+                  "teacher_id": "TCH-18",
+                  "subject": "Mathematics",
+                  "target_type": "class",
+                  "target_id": "CLS-06",
+                  "group_id": null
+                }
+              ]
+            }
+          ],
           "P3": [
             {
               "unit_id": "ASG-014",
@@ -19648,33 +19674,7 @@
         },
         "Tuesday": {
           "P1": [],
-          "P2": [
-            {
-              "unit_id": "ASG-016",
-              "kind": "class",
-              "subject": "Mathematics",
-              "teachers": [
-                "TCH-18"
-              ],
-              "classes": [
-                "CLS-06"
-              ],
-              "groups": [],
-              "assignments": [
-                "ASG-016"
-              ],
-              "members": [
-                {
-                  "assignment_id": "ASG-016",
-                  "teacher_id": "TCH-18",
-                  "subject": "Mathematics",
-                  "target_type": "class",
-                  "target_id": "CLS-06",
-                  "group_id": null
-                }
-              ]
-            }
-          ],
+          "P2": [],
           "P3": [
             {
               "unit_id": "ASG-016",

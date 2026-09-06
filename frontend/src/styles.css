@@ -1282,3 +1282,352 @@ body {
     flex: 1;
   }
 }
+
+/* ===========================================================================
+   Edit mode: options shaded onto the grid
+   =========================================================================== */
+
+.tt-head--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.editbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.editbar__note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.editbar__error {
+  font-size: 0.8rem;
+  color: var(--bad);
+}
+
+.button--small {
+  padding: 6px 13px;
+  font-size: 0.82rem;
+}
+
+/* best -> worst colour key, same scale as the cells */
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend__label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legend__bar {
+  display: inline-block;
+  width: 84px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    hsl(140, 62%, 88%),
+    hsl(70, 62%, 88%),
+    hsl(0, 62%, 88%)
+  );
+  border: 1px solid var(--border);
+}
+
+/* a slot this lesson could move to; background colour is set inline */
+.tt-cell--option {
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+
+.tt-cell--current {
+  outline: 2px dashed var(--accent);
+  outline-offset: -3px;
+}
+
+.tt-cell--chosen {
+  box-shadow: inset 0 0 0 3px var(--accent-dark);
+}
+
+.tt-tagline {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+/* "more details" button, pinned to the corner of a candidate slot so it
+   reads as something to press rather than another label */
+.tt-cell--option {
+  position: relative;
+  padding-right: 30px;
+}
+
+.tt-option-info {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid rgba(26, 34, 51, 0.3);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--accent-dark);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.2);
+  transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+
+.tt-option-info:hover,
+.tt-option-info:focus-visible {
+  transform: scale(1.12);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* the slot whose details are open keeps the button filled in */
+.tt-option-info.is-open {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+
+/* ------------------------------------------------------ slot details ---- */
+
+.slotdetail {
+  margin-top: 12px;
+  padding: 13px 15px;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.slotdetail__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.slotdetail__head .detail__close {
+  margin-left: auto;
+}
+
+.slotdetail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 12px 0 0;
+}
+
+.slotdetail__grid dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 34, 51, 0.65);
+}
+
+.slotdetail__grid dd {
+  margin: 3px 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.slotdetail__preview {
+  margin: 12px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+}
+
+.slotdetail__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ------------------------------------------------- all-options table ---- */
+
+.modal__box--wide {
+  max-width: 780px;
+}
+
+.optiontable__scroll {
+  overflow-x: auto;
+  max-height: 340px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.optiontable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  font-size: 0.84rem;
+}
+
+.optiontable th,
+.optiontable td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.optiontable thead th {
+  position: sticky;
+  top: 0;
+  background: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.optiontable__row {
+  cursor: pointer;
+}
+
+.optiontable__row:hover {
+  background: #f8fafc;
+}
+
+.optiontable__row.is-active {
+  background: #f5f3ff;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.optiontable__slot {
+  font-weight: 600;
+}
+
+.optiontable__what {
+  color: var(--text-muted);
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 7px;
+  border: 1px solid;
+  border-radius: 4px;
+  vertical-align: -1px;
+}
+
+.modal__chosen {
+  flex: 1;
+  align-self: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 720px) {
+  .editbar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ---------------------------------------------- details beside the grid --- */
+
+.tt-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* the grid keeps its own horizontal scroll and gives up width to the panel */
+.tt-layout > .tt-scroll {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tt-layout > .slotdetail {
+  flex: 0 0 300px;
+  width: 300px;
+  margin-top: 0;
+  position: sticky;
+  top: 16px;
+}
+
+/* one column inside a narrow side panel */
+.tt-layout > .slotdetail .slotdetail__grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* not enough room to sit side by side: fall back to stacking */
+@media (max-width: 1024px) {
+  .tt-layout {
+    flex-direction: column;
+    /* stretch, or the grid shrink-wraps its wide table and pushes the
+       page sideways instead of scrolling inside its own box */
+    align-items: stretch;
+  }
+
+  .tt-layout > .slotdetail {
+    flex: 1 1 auto;
+    width: 100%;
+    position: static;
+  }
+
+  .tt-layout > .slotdetail .slotdetail__grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  }
+}
+
+/* what currently occupies a candidate slot - the lesson a swap displaces.
+   Usually another teacher's, so it is not otherwise in this grid. */
+.tt-swapinfo {
+  margin-top: 2px;
+  padding-left: 7px;
+  border-left: 3px solid rgba(26, 34, 51, 0.22);
+}
+
+.tt-swapinfo__subject {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: rgba(26, 34, 51, 0.85);
+}
+
+.tt-swapinfo__target,
+.tt-swapinfo__free {
+  display: block;
+  font-size: 0.74rem;
+  color: rgba(26, 34, 51, 0.6);
+}
+
+.tt-swapinfo__free {
+  font-style: italic;
+}

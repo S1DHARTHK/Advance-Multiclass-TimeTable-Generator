@@ -5,7 +5,9 @@ import ClassTimetable from "./components/ClassTimetable";
 import EditDialog from "./components/EditDialog";
 import SubjectRequirements from "./components/SubjectRequirements";
 import TeacherSchedule from "./components/TeacherSchedule";
+import { editorApi } from "./api/editorApi";
 import { loadSolution, normalizeSolution } from "./api/solutionApi";
+import { optionKey } from "./components/TeacherSchedule";
 import { validateSolution } from "./validation";
 
 const ALL_CLASSES = "ALL";
@@ -21,7 +23,13 @@ export default function App() {
   const [view, setView] = useState(CLASS_VIEW);
   const [selectedClass, setSelectedClass] = useState(ALL_CLASSES);
   const [selectedTeacher, setSelectedTeacher] = useState("");
-  const [editing, setEditing] = useState(null);
+
+  // Edit mode: one lesson at a time, its candidates shaded onto the grid.
+  const [session, setSession] = useState(null);
+  const [showAllOptions, setShowAllOptions] = useState(false);
+  const [preview, setPreview] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [actionError, setActionError] = useState(null);
 
   // The timetable comes from the editor service when it is running, and
   // from the bundled file otherwise (read-only).
@@ -60,15 +68,99 @@ export default function App() {
     [solution]
   );
 
+  const closeEdit = useCallback(() => {
+    setSession(null);
+    setShowAllOptions(false);
+    setPreview(null);
+    setActionError(null);
+  }, []);
+
+  // Leaving the teacher or the view abandons an edit in progress.
+  useEffect(() => {
+    closeEdit();
+  }, [selectedTeacher, view, closeEdit]);
+
+  const startEdit = useCallback(
+    async ({ day, period }) => {
+      const teacherId = selectedTeacher;
+      setSession({ status: "loading", teacherId, day, period });
+      setShowAllOptions(false);
+      setPreview(null);
+      setActionError(null);
+
+      try {
+        // ask for the whole valid set, not just the top few: the grid
+        // shades every slot the lesson could legally go to
+        const data = await editorApi.candidates({
+          teacherId,
+          day,
+          period,
+          limit: 50,
+        });
+        setSession({ status: "ready", teacherId, day, period, data });
+      } catch (error) {
+        setSession({
+          status: "error",
+          teacherId,
+          day,
+          period,
+          error: error.message,
+        });
+      }
+    },
+    [selectedTeacher]
+  );
+
+  const previewOption = useCallback(async (option) => {
+    if (!option) return;
+    setBusy(true);
+    setActionError(null);
+    try {
+      const data = await editorApi.preview(option.change);
+      setPreview({ key: optionKey(option), data });
+    } catch (error) {
+      setActionError(error.message);
+    } finally {
+      setBusy(false);
+    }
+  }, []);
+
   // One state update refreshes every view, class and teacher alike, because
   // they all read from this object.
-  const handleApplied = useCallback((result) => {
-    setSolution(normalizeSolution(result.solution));
-    setEditing(null);
-    setNotice(
-      `Applied: ${result.applied.summary} — timetable now ${result.report.hard_total} violations, soft ${result.report.soft_total.toFixed(2)}.`
-    );
-  }, []);
+  const applyOption = useCallback(
+    async (option) => {
+      if (!option) return;
+      setBusy(true);
+      setActionError(null);
+      try {
+        const result = await editorApi.apply(option.change);
+        setSolution(normalizeSolution(result.solution));
+        closeEdit();
+        setNotice(
+          `Applied: ${result.applied.summary} — timetable now ${result.report.hard_total} violations, soft ${result.report.soft_total.toFixed(2)}.`
+        );
+      } catch (error) {
+        setActionError(error.message);
+      } finally {
+        setBusy(false);
+      }
+    },
+    [closeEdit]
+  );
+
+  const editor = useMemo(
+    () => ({
+      session,
+      preview,
+      busy,
+      error: actionError,
+      cancel: closeEdit,
+      openAll: () => setShowAllOptions(true),
+      previewOption,
+      applyOption,
+    }),
+    [session, preview, busy, actionError, closeEdit, previewOption, applyOption]
+  );
 
   if (loading) {
     return (
@@ -198,19 +290,14 @@ export default function App() {
             solution={solution}
             teacher={teacher}
             conflicts={validation.teacherCells[teacher.id]}
-            onEdit={live ? (cell) => setEditing({ ...cell, teacherId: teacher.id }) : null}
+            onEdit={live ? startEdit : null}
+            editor={editor}
           />
         )}
       </main>
 
-      {editing && (
-        <EditDialog
-          teacherId={editing.teacherId}
-          day={editing.day}
-          period={editing.period}
-          onClose={() => setEditing(null)}
-          onApplied={handleApplied}
-        />
+      {showAllOptions && (
+        <EditDialog editor={editor} onClose={() => setShowAllOptions(false)} />
       )}
     </div>
   );
