@@ -20,7 +20,7 @@
     "lunch_is_a_period": false
   },
   "report": {
-    "fitness": 82.56129929540724,
+    "fitness": 82.39578205402793,
     "hard_violations": {
       "class_clash": 0,
       "teacher_clash": 0,
@@ -32,8 +32,8 @@
     },
     "hard_total": 0,
     "soft_scores": {
-      "period_priority": 0.7965517241379311,
-      "class_teacher_first_period": 0.92,
+      "period_priority": 0.7977011494252874,
+      "class_teacher_first_period": 0.9,
       "subject_distribution": 0.7733333333333333,
       "teacher_workload": 0.8933986303551521,
       "gaps_and_blocks": 0.8365217391304348
@@ -45,7 +45,7 @@
       "teacher_workload": 15.0,
       "gaps_and_blocks": 20.0
     },
-    "soft_total": 82.56129929540724,
+    "soft_total": 82.39578205402793,
     "hard_penalty": 500.0
   },
   "classes": {
@@ -88,24 +88,24 @@
         "Monday": {
           "P1": [
             {
-              "unit_id": "ASG-021",
+              "unit_id": "ASG-041",
               "kind": "class",
-              "subject": "Chemistry",
+              "subject": "English",
               "teachers": [
-                "TCH-04"
+                "TCH-13"
               ],
               "classes": [
                 "CLS-01"
               ],
               "groups": [],
               "assignments": [
-                "ASG-021"
+                "ASG-041"
               ],
               "members": [
                 {
-                  "assignment_id": "ASG-021",
-                  "teacher_id": "TCH-04",
-                  "subject": "Chemistry",
+                  "assignment_id": "ASG-041",
+                  "teacher_id": "TCH-13",
+                  "subject": "English",
                   "target_type": "class",
                   "target_id": "CLS-01",
                   "group_id": null
@@ -169,24 +169,24 @@
           ],
           "P4": [
             {
-              "unit_id": "ASG-041",
+              "unit_id": "ASG-021",
               "kind": "class",
-              "subject": "English",
+              "subject": "Chemistry",
               "teachers": [
-                "TCH-13"
+                "TCH-04"
               ],
               "classes": [
                 "CLS-01"
               ],
               "groups": [],
               "assignments": [
-                "ASG-041"
+                "ASG-021"
               ],
               "members": [
                 {
-                  "assignment_id": "ASG-041",
-                  "teacher_id": "TCH-13",
-                  "subject": "English",
+                  "assignment_id": "ASG-021",
+                  "teacher_id": "TCH-04",
+                  "subject": "Chemistry",
                   "target_type": "class",
                   "target_id": "CLS-01",
                   "group_id": null
@@ -13103,33 +13103,7 @@
       },
       "timetable": {
         "Monday": {
-          "P1": [
-            {
-              "unit_id": "ASG-021",
-              "kind": "class",
-              "subject": "Chemistry",
-              "teachers": [
-                "TCH-04"
-              ],
-              "classes": [
-                "CLS-01"
-              ],
-              "groups": [],
-              "assignments": [
-                "ASG-021"
-              ],
-              "members": [
-                {
-                  "assignment_id": "ASG-021",
-                  "teacher_id": "TCH-04",
-                  "subject": "Chemistry",
-                  "target_type": "class",
-                  "target_id": "CLS-01",
-                  "group_id": null
-                }
-              ]
-            }
-          ],
+          "P1": [],
           "P2": [
             {
               "unit_id": "ASG-023",
@@ -13158,7 +13132,33 @@
             }
           ],
           "P3": [],
-          "P4": [],
+          "P4": [
+            {
+              "unit_id": "ASG-021",
+              "kind": "class",
+              "subject": "Chemistry",
+              "teachers": [
+                "TCH-04"
+              ],
+              "classes": [
+                "CLS-01"
+              ],
+              "groups": [],
+              "assignments": [
+                "ASG-021"
+              ],
+              "members": [
+                {
+                  "assignment_id": "ASG-021",
+                  "teacher_id": "TCH-04",
+                  "subject": "Chemistry",
+                  "target_type": "class",
+                  "target_id": "CLS-01",
+                  "group_id": null
+                }
+              ]
+            }
+          ],
           "P5": [
             {
               "unit_id": "ASG-025",
@@ -17451,7 +17451,33 @@
       },
       "timetable": {
         "Monday": {
-          "P1": [],
+          "P1": [
+            {
+              "unit_id": "ASG-041",
+              "kind": "class",
+              "subject": "English",
+              "teachers": [
+                "TCH-13"
+              ],
+              "classes": [
+                "CLS-01"
+              ],
+              "groups": [],
+              "assignments": [
+                "ASG-041"
+              ],
+              "members": [
+                {
+                  "assignment_id": "ASG-041",
+                  "teacher_id": "TCH-13",
+                  "subject": "English",
+                  "target_type": "class",
+                  "target_id": "CLS-01",
+                  "group_id": null
+                }
+              ]
+            }
+          ],
           "P2": [
             {
               "unit_id": "ASG-050",
@@ -17480,33 +17506,7 @@
             }
           ],
           "P3": [],
-          "P4": [
-            {
-              "unit_id": "ASG-041",
-              "kind": "class",
-              "subject": "English",
-              "teachers": [
-                "TCH-13"
-              ],
-              "classes": [
-                "CLS-01"
-              ],
-              "groups": [],
-              "assignments": [
-                "ASG-041"
-              ],
-              "members": [
-                {
-                  "assignment_id": "ASG-041",
-                  "teacher_id": "TCH-13",
-                  "subject": "English",
-                  "target_type": "class",
-                  "target_id": "CLS-01",
-                  "group_id": null
-                }
-              ]
-            }
-          ],
+          "P4": [],
           "P5": [
             {
               "unit_id": "ASG-044",

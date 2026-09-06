@@ -35,6 +35,7 @@ export default function App() {
   // Version history: every applied edit adds one, and any can be restored.
   const [history, setHistory] = useState(null);
 
+
   // The timetable comes from the editor service when it is running, and
   // from the bundled file otherwise (read-only).
   useEffect(() => {

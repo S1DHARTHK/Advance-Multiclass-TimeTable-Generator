@@ -1,20 +1,45 @@
-/* Timetable prototype - single class view. */
+/* ===========================================================================
+   Halftone Circuit - dark-mode timetable UI.
+
+   Black base under a halftone dot texture, near-black surfaces, and one
+   rationed cyan accent that carries every emphasis. Grey and cyan do all
+   the hierarchy; the only other hues are the status colours a validator
+   genuinely needs (a clash has to read as wrong, not merely unaccented).
+   =========================================================================== */
 
 :root {
-  --bg: #f4f6fb;
-  --surface: #ffffff;
-  --border: #e3e8f0;
-  --text: #1a2233;
-  --text-muted: #64748b;
-  --accent: #4f46e5;
-  --accent-dark: #4338ca;
-  --ok: #15803d;
-  --bad: #b91c1c;
-  --lunch-bg: #fff5e6;
-  --lunch-border: #f5c98a;
-  --lunch-text: #a05a13;
+  --bg: #000000;
+  --surface: #09090b;
+  /* one step lifted from the card surface, for inputs and inner panels */
+  --surface-2: #131317;
+  --track: #1c1c21;
+  --border: #27272a;
+  --text: #ffffff;
+  --text-muted: #a1a1aa;
+
+  --accent: #00d9ff;
+  --accent-dark: #00d9ff;
+  --accent-hover: #00b8d9;
+  --accent-soft: rgba(0, 217, 255, 0.12);
+
+  /* status hues, pitched for a black background */
+  --ok: #4ade80;
+  --ok-soft: rgba(74, 222, 128, 0.12);
+  --ok-border: rgba(74, 222, 128, 0.4);
+  --bad: #f87171;
+  --bad-soft: rgba(248, 113, 113, 0.12);
+  --bad-border: rgba(248, 113, 113, 0.42);
+  --warn: #fbbf24;
+
+  --lunch-bg: rgba(251, 191, 36, 0.08);
+  --lunch-border: rgba(251, 191, 36, 0.35);
+  --lunch-text: #fbbf24;
+
   --radius: 14px;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.45);
+  --glow: 0 0 20px rgba(0, 217, 255, 0.15);
+
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
 }
 
 * {
@@ -23,12 +48,31 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  /* the halftone dot matrix, kept as the base surface throughout */
+  background-image:
+    radial-gradient(circle, #183030 1.15px, transparent 1.25px),
+    radial-gradient(circle, #304848 0.9px, transparent 1px);
+  background-size: 14px 14px, 14px 14px;
+  background-position: 0 0, 7px 7px;
+  background-attachment: fixed;
   color: var(--text);
-  font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-family: "Plus Jakarta Sans", "Segoe UI", Roboto, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* display face for titles and the small tracked labels */
+.header__title,
+.tt-title,
+.versions__title,
+.status__headline,
+.modal__title,
+.req__title,
+.panel--empty h2,
+.panel--error h2 {
+  font-family: var(--display);
 }
 
 .sr-only {
@@ -58,19 +102,28 @@ body {
   justify-content: space-between;
   gap: 20px;
   padding: 26px 28px;
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #7c8cf8 100%);
+  /* near-black panel with the cyan motif bleeding in from the left */
+  background-color: var(--surface);
+  background-image: radial-gradient(
+    620px circle at 0% 0%,
+    rgba(0, 217, 255, 0.16),
+    transparent 62%
+  );
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  color: #fff;
+  color: var(--text);
 }
 
 .header__eyebrow {
   margin: 0 0 4px;
+  font-family: var(--display);
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
+  /* eyebrow labels are one of the few places the accent is spent */
+  color: var(--accent);
 }
 
 .header__title {
@@ -83,7 +136,7 @@ body {
 .header__subtitle {
   margin: 6px 0 0;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
 }
 
 .header__actions {
@@ -96,7 +149,7 @@ body {
 .header__hint {
   margin: 0;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
 }
 
 /* ---------------------------------------------------------- buttons ---- */
@@ -116,7 +169,7 @@ body {
 
 .button:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
 }
 
 .button:disabled {
@@ -124,14 +177,15 @@ body {
   opacity: 0.75;
 }
 
+/* white solid pill, black text - the highest-contrast control */
 .button--primary {
   background: #ffffff;
-  color: var(--accent-dark);
+  color: #000000;
   border-color: transparent;
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.7);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -171,8 +225,8 @@ body {
 }
 
 .panel--error {
-  border-color: #f3c2c2;
-  background: #fff8f8;
+  border-color: var(--bad-border);
+  background: var(--bad-soft);
 }
 
 .panel--error h2 {
@@ -236,7 +290,7 @@ body {
 .fitness__bar {
   height: 8px;
   margin: 12px 0 14px;
-  background: #eef1f7;
+  background: var(--track);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -305,7 +359,7 @@ body {
 .day-cell {
   width: 130px;
   padding: 12px 14px;
-  background: #f8fafc;
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 10px;
   font-size: 0.9rem;
@@ -353,7 +407,7 @@ body {
   color: var(--text-muted);
   font-weight: 500;
   font-style: italic;
-  background: #fbfcfe;
+  background: var(--surface-2);
 }
 
 .subject[data-subject="physics"] {
@@ -373,7 +427,7 @@ body {
 
 .subject[data-subject="computer-science"] {
   --subject-color: #7c3aed;
-  --subject-bg: #f5f3ff;
+  --subject-bg: var(--accent-soft);
 }
 
 .subject[data-subject="hindi"] {
@@ -405,7 +459,7 @@ body {
 .lunch-note {
   margin-left: 10px;
   font-size: 0.78rem;
-  color: #b8834a;
+  color: var(--lunch-text);
 }
 
 /* ---------------------------------------------------------- footer ----- */
@@ -479,7 +533,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
 }
 
 .picker__select {
@@ -487,7 +541,7 @@ body {
   padding: 10px 12px;
   border: 1px solid transparent;
   border-radius: 10px;
-  background: #ffffff;
+  background: var(--surface-2);
   color: var(--text);
   font-family: inherit;
   font-size: 0.95rem;
@@ -496,7 +550,7 @@ body {
 }
 
 .picker__select:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.7);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -544,7 +598,7 @@ body {
 .tt-day-head,
 .tt-lunch-head {
   padding: 8px 6px;
-  background: #f8fafc;
+  background: var(--surface-2);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -558,7 +612,7 @@ body {
   min-width: 108px;
   text-align: left;
   padding: 10px;
-  background: #f8fafc;
+  background: var(--surface-2);
   font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
@@ -640,7 +694,7 @@ body {
   display: flex;
   gap: 6px;
   padding: 4px;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--surface-2);
   border-radius: 10px;
 }
 
@@ -658,11 +712,11 @@ body {
 
 .views__button.is-active {
   background: #ffffff;
-  color: var(--accent-dark);
+  color: #000000;
 }
 
 .views__button:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.7);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -679,12 +733,12 @@ body {
 
 .status--ok {
   border-left-color: var(--ok);
-  background: #f3fbf5;
+  background: var(--ok-soft);
 }
 
 .status--bad {
   border-left-color: var(--bad);
-  background: #fff7f7;
+  background: var(--bad-soft);
 }
 
 .status__head {
@@ -713,7 +767,7 @@ body {
   padding: 7px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface-2);
   font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
@@ -750,7 +804,7 @@ body {
   padding: 12px 12px 12px 30px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--surface);
   font-size: 0.84rem;
   line-height: 1.6;
 }
@@ -759,7 +813,7 @@ body {
   display: inline-block;
   padding: 1px 7px;
   border-radius: 999px;
-  background: #fee2e2;
+  background: var(--bad-soft);
   color: var(--bad);
   font-size: 0.72rem;
   font-weight: 700;
@@ -768,7 +822,7 @@ body {
 /* ------------------------------------------------------- conflict cells -- */
 
 .tt-cell--clash {
-  background: #fff1f1;
+  background: var(--bad-soft);
   box-shadow: inset 0 0 0 2px var(--bad);
 }
 
@@ -778,7 +832,7 @@ body {
   padding: 2px 7px;
   border: 1px solid var(--bad);
   border-radius: 999px;
-  background: #fff;
+  background: var(--surface-2);
   color: var(--bad);
   font-family: inherit;
   font-size: 0.68rem;
@@ -791,7 +845,7 @@ body {
   padding: 12px 14px;
   border: 1px solid var(--bad);
   border-radius: 10px;
-  background: #fff7f7;
+  background: var(--bad-soft);
 }
 
 .detail__head {
@@ -806,7 +860,7 @@ body {
   padding: 4px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface-2);
   font-family: inherit;
   font-size: 0.8rem;
   cursor: pointer;
@@ -881,7 +935,7 @@ body {
 }
 
 .req__row--bad {
-  background: #fff7f7;
+  background: var(--bad-soft);
 }
 
 .pill {
@@ -893,12 +947,12 @@ body {
 }
 
 .pill--ok {
-  background: #dcfce7;
+  background: var(--ok-soft);
   color: var(--ok);
 }
 
 .pill--bad {
-  background: #fee2e2;
+  background: var(--bad-soft);
   color: var(--bad);
 }
 
@@ -908,7 +962,7 @@ body {
   width: 110px;
   min-width: 110px;
   padding: 8px 10px;
-  background: #f8fafc;
+  background: var(--surface-2);
   vertical-align: middle;
 }
 
@@ -934,7 +988,7 @@ body {
 
 .tt-weektotal {
   padding: 9px 10px;
-  background: #f8fafc;
+  background: var(--surface-2);
   font-size: 0.84rem;
   color: var(--text-muted);
 }
@@ -949,7 +1003,7 @@ body {
   padding: 2px 9px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: #fff;
+  background: var(--surface-2);
   color: var(--accent-dark);
   font-family: inherit;
   font-size: 0.68rem;
@@ -958,7 +1012,7 @@ body {
 }
 
 .tt-edit:hover {
-  background: #f5f3ff;
+  background: var(--accent-soft);
   border-color: var(--accent);
 }
 
@@ -980,13 +1034,13 @@ body {
 .notice code {
   padding: 1px 6px;
   border-radius: 6px;
-  background: #eef1f7;
+  background: var(--track);
   font-size: 0.82rem;
 }
 
 .notice--ok {
-  border-color: #bbf7d0;
-  background: #f3fbf5;
+  border-color: var(--ok-border);
+  background: var(--ok-soft);
   color: var(--ok);
   font-weight: 600;
 }
@@ -995,7 +1049,7 @@ body {
   padding: 4px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface-2);
   color: var(--text);
   font-family: inherit;
   font-size: 0.8rem;
@@ -1013,7 +1067,7 @@ body {
   justify-content: center;
   padding: 24px 16px;
   overflow-y: auto;
-  background: rgba(16, 24, 40, 0.45);
+  background: rgba(0, 0, 0, 0.78);
 }
 
 .modal__box {
@@ -1021,7 +1075,7 @@ body {
   max-width: 620px;
   border-radius: var(--radius);
   background: var(--surface);
-  box-shadow: 0 20px 60px rgba(16, 24, 40, 0.28);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
 }
 
 .modal__head {
@@ -1049,7 +1103,7 @@ body {
   padding: 5px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface-2);
   font-family: inherit;
   font-size: 0.82rem;
   cursor: pointer;
@@ -1068,9 +1122,9 @@ body {
 .modal__error {
   margin: 10px 0 0;
   padding: 10px 12px;
-  border: 1px solid #f3c2c2;
+  border: 1px solid var(--bad-border);
   border-radius: 8px;
-  background: #fff8f8;
+  background: var(--bad-soft);
   color: var(--bad);
   font-size: 0.85rem;
 }
@@ -1083,10 +1137,18 @@ body {
   border-top: 1px solid var(--border);
 }
 
+/* the one cyan CTA: black text on accent, with the resting glow */
 .button--apply {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #000;
+  box-shadow: var(--glow);
+}
+
+.button--apply:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
 }
 
 .button--apply:disabled {
@@ -1116,7 +1178,7 @@ body {
 
 .option.is-active {
   border-color: var(--accent);
-  background: #f5f3ff;
+  background: var(--accent-soft);
 }
 
 .option__radio {
@@ -1148,17 +1210,17 @@ body {
 }
 
 .badge--swap {
-  background: #ede9fe;
-  color: #6d28d9;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .badge--move {
-  background: #dbeafe;
-  color: #1d4ed8;
+  background: var(--surface-2);
+  color: var(--text-muted);
 }
 
 .badge--ok {
-  background: #dcfce7;
+  background: var(--ok-soft);
   color: var(--ok);
 }
 
@@ -1197,7 +1259,7 @@ body {
   width: 54px;
   height: 5px;
   border-radius: 999px;
-  background: #e9edf5;
+  background: var(--track);
   overflow: hidden;
 }
 
@@ -1208,11 +1270,11 @@ body {
 }
 
 .impact__fill.is-better {
-  background: #16a34a;
+  background: var(--ok);
 }
 
 .impact__fill.is-worse {
-  background: #f59e0b;
+  background: var(--warn);
 }
 
 .impact__value {
@@ -1228,7 +1290,7 @@ body {
 }
 
 .is-worse {
-  color: #b45309;
+  color: var(--warn);
 }
 
 /* ------------------------------------------------------------ preview --- */
@@ -1238,7 +1300,7 @@ body {
   padding: 12px 14px;
   border: 1px dashed var(--accent);
   border-radius: 10px;
-  background: #faf9ff;
+  background: var(--accent-soft);
 }
 
 .preview__head {
@@ -1304,7 +1366,7 @@ body {
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #f8fafc;
+  background: var(--surface-2);
 }
 
 .editbar__note {
@@ -1341,28 +1403,33 @@ body {
   width: 84px;
   height: 8px;
   border-radius: 999px;
+  /* the five ranking tiers, as discrete bands rather than a blend */
   background: linear-gradient(
     90deg,
-    hsl(140, 62%, 88%),
-    hsl(70, 62%, 88%),
-    hsl(0, 62%, 88%)
+    #193921 0 20%,
+    #408435 20% 40%,
+    #7c8840 40% 60%,
+    #88602d 60% 80%,
+    #883b2d 80% 100%
   );
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border: 1px solid var(--border);
 }
 
-/* a slot this lesson could move to; background colour is set inline */
-.tt-cell--option {
-  border-width: 2px !important;
-  border-style: solid !important;
-}
-
-.tt-cell--current {
+/* marks follow the rounded card, not the square table cell */
+.tt-cell--current .tt-plain,
+.tt-cell--current .tt-option-box {
   outline: 2px dashed var(--accent);
-  outline-offset: -3px;
+  outline-offset: -2px;
+  border-radius: 6px;
 }
 
-.tt-cell--chosen {
-  box-shadow: inset 0 0 0 3px var(--accent-dark);
+/* the open card keeps its tier colour and is lit brighter instead */
+.tt-cell--chosen .tt-option-box {
+  border-color: var(--tint-edge, var(--accent));
+  box-shadow: 0 0 0 2px var(--tint-edge, var(--accent)),
+    0 0 22px -2px var(--tint-glow, transparent),
+    0 8px 20px rgba(0, 0, 0, 0.55);
 }
 
 .tt-tagline {
@@ -1375,11 +1442,29 @@ body {
   color: var(--accent-dark);
 }
 
-/* "more details" button, pinned to the corner of a candidate slot so it
-   reads as something to press rather than another label */
+/* a candidate slot: the colour, edge, radius and lift sit on this inner
+   card, since a cell in a collapsed table cannot round its own corners */
+/* sits close in to the period cell's own border */
 .tt-cell--option {
+  padding: 1px;
+}
+
+.tt-option-box {
   position: relative;
-  padding-right: 30px;
+  height: 100%;
+  padding: 8px 31px 8px 9px;
+  border: 1.5px solid;
+  border-radius: 6px;
+  /* a faint aurora halo in the tier's own hue, so a ranked card reads as
+     lit rather than flagged */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
+    0 0 12px -3px var(--tint-glow, transparent),
+    0 1px 0 rgba(255, 255, 255, 0.07) inset;
+}
+
+/* ordinary cells keep their plain flow */
+.tt-plain {
+  height: 100%;
 }
 
 .tt-option-info {
@@ -1392,12 +1477,12 @@ body {
   width: 24px;
   height: 24px;
   padding: 0;
-  border: 1px solid rgba(26, 34, 51, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface-2);
   color: var(--accent-dark);
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease;
 }
 
@@ -1406,23 +1491,25 @@ body {
   transform: scale(1.12);
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #000;
 }
 
 /* the slot whose details are open keeps the button filled in */
 .tt-option-info.is-open {
   background: var(--accent-dark);
   border-color: var(--accent-dark);
-  color: #fff;
+  color: #000;
 }
 
 /* ------------------------------------------------------ slot details ---- */
 
 .slotdetail {
   margin-top: 12px;
-  padding: 13px 15px;
-  border: 2px solid;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1.5px solid;
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
 }
 
 .slotdetail__head {
@@ -1449,7 +1536,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(26, 34, 51, 0.65);
+  color: var(--text-muted);
 }
 
 .slotdetail__grid dd {
@@ -1462,7 +1549,7 @@ body {
   margin: 12px 0 0;
   padding: 8px 10px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.35);
   font-size: 0.82rem;
 }
 
@@ -1504,7 +1591,7 @@ body {
 .optiontable thead th {
   position: sticky;
   top: 0;
-  background: #f8fafc;
+  background: var(--surface-2);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -1517,11 +1604,11 @@ body {
 }
 
 .optiontable__row:hover {
-  background: #f8fafc;
+  background: var(--surface-2);
 }
 
 .optiontable__row.is-active {
-  background: #f5f3ff;
+  background: var(--accent-soft);
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
@@ -1610,7 +1697,7 @@ body {
 .tt-swapinfo {
   margin-top: 2px;
   padding-left: 7px;
-  border-left: 3px solid rgba(26, 34, 51, 0.22);
+  border-left: 3px solid rgba(255, 255, 255, 0.22);
 }
 
 .tt-swapinfo__subject {
@@ -1618,14 +1705,14 @@ body {
   font-size: 0.82rem;
   font-weight: 600;
   line-height: 1.25;
-  color: rgba(26, 34, 51, 0.85);
+  color: var(--text);
 }
 
 .tt-swapinfo__target,
 .tt-swapinfo__free {
   display: block;
   font-size: 0.74rem;
-  color: rgba(26, 34, 51, 0.6);
+  color: var(--text-muted);
 }
 
 .tt-swapinfo__free {
@@ -1707,7 +1794,7 @@ body {
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 9px;
-  background: #fff;
+  background: var(--surface-2);
   font-family: inherit;
   text-align: left;
   cursor: pointer;
@@ -1715,7 +1802,7 @@ body {
 
 .version:hover:not(:disabled) {
   border-color: var(--accent);
-  background: #f8f7ff;
+  background: var(--accent-soft);
 }
 
 .version:disabled {
@@ -1724,7 +1811,7 @@ body {
 
 .version.is-current {
   border-color: var(--accent);
-  background: #f5f3ff;
+  background: var(--accent-soft);
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
@@ -1744,7 +1831,7 @@ body {
   padding: 0 7px;
   border-radius: 999px;
   background: var(--accent);
-  color: #fff;
+  color: #000;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1779,8 +1866,8 @@ body {
 }
 
 .notice--bad {
-  border-color: #f3c2c2;
-  background: #fff8f8;
+  border-color: var(--bad-border);
+  background: var(--bad-soft);
   color: var(--bad);
   font-weight: 600;
 }
@@ -1807,4 +1894,137 @@ body {
     position: static;
     max-height: 260px;
   }
+}
+
+/* act on a candidate slot without opening its details first */
+.tt-swap {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tt-swap:hover:not(:disabled) {
+  background: var(--accent);
+  color: #000;
+}
+
+.tt-swap:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.tt-swap:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===========================================================================
+   Candidate cards carry their own ink
+
+   Half the ranking palette is light enough that white text would vanish on
+   it, so tintFor() picks each card's ink and passes it down as --on-tint.
+   Everything inside a card follows that instead of the page's white.
+   =========================================================================== */
+
+.tt-option-box {
+  color: var(--on-tint, var(--text));
+}
+
+.tt-option-box .tt-subject,
+.tt-option-box .tt-swapinfo__subject {
+  color: inherit;
+}
+
+.tt-option-box .tt-teacher,
+.tt-option-box .tt-swapinfo__target,
+.tt-option-box .tt-swapinfo__free,
+.tt-option-box .tt-free {
+  color: inherit;
+  opacity: 0.74;
+}
+
+.tt-option-box .tt-swapinfo {
+  border-left-color: currentColor;
+  opacity: 0.95;
+}
+
+/* the two controls invert against their own card, so they stay legible
+   whether it is Dust Grey or Hunter Green */
+.tt-option-box .tt-option-info {
+  background: var(--chip);
+  border-color: currentColor;
+  color: inherit;
+}
+
+.tt-option-box .tt-option-info:hover,
+.tt-option-box .tt-option-info:focus-visible,
+.tt-option-box .tt-option-info.is-open {
+  background: var(--on-tint);
+  border-color: var(--on-tint);
+  color: var(--tint-bg);
+}
+
+.tt-option-box .tt-swap {
+  border-color: currentColor;
+  color: inherit;
+}
+
+.tt-option-box .tt-swap:hover:not(:disabled) {
+  background: var(--on-tint);
+  color: var(--tint-bg);
+}
+
+/* the details panel is tinted the same way, so it adapts too */
+.slotdetail {
+  color: var(--on-tint, var(--text));
+}
+
+.slotdetail__grid dt {
+  color: inherit;
+  opacity: 0.72;
+}
+
+.slotdetail__grid dd {
+  color: inherit;
+}
+
+.slotdetail__preview {
+  background: var(--chip);
+  color: inherit;
+}
+
+.slotdetail .badge {
+  background: var(--chip);
+  color: inherit;
+}
+
+.slotdetail .detail__close {
+  background: var(--chip);
+  border-color: currentColor;
+  color: inherit;
+}
+
+/* the tier a candidate falls into, shown beside its rank */
+.tier {
+  padding: 1px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }

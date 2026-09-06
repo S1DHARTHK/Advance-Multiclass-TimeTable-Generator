@@ -46,17 +46,85 @@ function InfoIcon() {
 }
 
 /**
- * Soft green -> amber -> soft red across the range of options.
+ * Best -> worst, run across the project palette:
  *
- * The shade follows the option's real score relative to the best and worst
- * on offer, so equally good options look equally good. Kept pale on purpose:
- * these are backgrounds behind text, not warning lights.
+ *   Topiary Sculpture -> Tree Shade -> Treetop Cathedral
+ *   -> Lindworm Green -> Jester Red
+ *
+ * The best option wears the liveliest green, options dim through the
+ * darker greens as they get worse, and the worst lands on red. The shade
+ * follows an option's real score relative to the best and worst on offer,
+ * so equally good options look equally good.
  */
+/**
+ * Aurora ranking scale: five named tiers rather than a smooth ramp, so a
+ * card's standing reads at a glance instead of being guessed from a shade.
+ *
+ * The hue travels teal -> cyan -> indigo -> purple -> rose. Deliberately
+ * not a traffic light: none of these is a warning colour, and all five sit
+ * dark enough to carry white text on the black page.
+ */
+const TIERS = [
+  { name: "Best", fill: [0x19, 0x39, 0x21] }, // deep green   #193921
+  { name: "Good", fill: [0x40, 0x84, 0x35] }, // green        #408435
+  { name: "Fair", fill: [0x7c, 0x88, 0x40] }, // olive        #7C8840
+  { name: "Poor", fill: [0x88, 0x60, 0x2d] }, // amber-brown  #88602D
+  { name: "Worst", fill: [0x88, 0x3b, 0x2d] }, // red-brown    #883B2D
+];
+
+/** Which tier a 0 (best) .. 1 (worst) score falls into. */
+export function tierFor(ratio) {
+  const clamped = Math.min(1, Math.max(0, ratio));
+  return TIERS[Math.min(TIERS.length - 1, Math.floor(clamped * TIERS.length))];
+}
+
+/** Perceived brightness, to decide what ink a card can carry. */
+function luminance([r, g, b]) {
+  const channel = (value) => {
+    const scaled = value / 255;
+    return scaled <= 0.03928
+      ? scaled / 12.92
+      : ((scaled + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+}
+
 export function tintFor(ratio) {
-  const hue = 140 - 140 * Math.min(1, Math.max(0, ratio));
+  const channels = tierFor(ratio).fill;
+
+  // Every tier here is dark, so white wins - but the check stays so a
+  // future palette with light tones still gets a readable ink.
+  const fill = luminance(channels);
+  const contrast = (other) =>
+    (Math.max(fill, other) + 0.05) / (Math.min(fill, other) + 0.05);
+
+  const darkInk = luminance([0x16, 0x20, 0x1a]);
+  const useDarkInk = contrast(darkInk) >= contrast(1);
+  const ink = useDarkInk ? "#16201a" : "#ffffff";
+
+  // border and glow are the tier's own hue lifted towards light: enough to
+  // outline the card and give it a faint aurora edge, not enough to read
+  // as an alert
+  const lift = (amount) =>
+    channels.map((value) =>
+      useDarkInk
+        ? Math.round(value * (1 - amount))
+        : Math.round(value + (255 - value) * amount)
+    );
+
+  const background = `rgb(${channels.join(", ")})`;
+  const edge = lift(0.3);
+  const glow = lift(0.55);
+
   return {
-    background: `hsl(${hue}, 62%, 88%)`,
-    borderColor: `hsl(${hue}, 45%, 58%)`,
+    background,
+    borderColor: `rgb(${edge.join(", ")})`,
+    color: ink,
+    "--on-tint": ink,
+    "--tint-bg": background,
+    "--tint-edge": `rgb(${edge.join(", ")})`,
+    "--tint-glow": `rgba(${glow.join(", ")}, 0.42)`,
+    "--chip": useDarkInk ? "rgba(0, 0, 0, 0.12)" : "rgba(255, 255, 255, 0.14)",
   };
 }
 
@@ -85,10 +153,12 @@ export default function TeacherSchedule({
     const span = best - worst;
 
     ready.data.candidates.forEach((option, index) => {
+      const ratio = span > 1e-9 ? (best - option.fitness_delta) / span : 0;
       map[`${option.day}|${option.period}`] = {
         ...option,
         rank: index + 1,
-        ratio: span > 1e-9 ? (best - option.fitness_delta) / span : 0,
+        ratio,
+        tier: tierFor(ratio).name,
       };
     });
     return map;
@@ -244,10 +314,14 @@ export default function TeacherSchedule({
 
                   return (
                     <Fragment key={period}>
-                      <td
-                        className={classes.join(" ")}
-                        style={option ? tintFor(option.ratio) : undefined}
-                      >
+                      <td className={classes.join(" ")}>
+                        {/* a candidate's colour, border, radius and shadow
+                            live on an inner card: a <td> in a collapsed
+                            table cannot round its own corners */}
+                        <div
+                          className={option ? "tt-option-box" : "tt-plain"}
+                          style={option ? tintFor(option.ratio) : undefined}
+                        >
                         {entries.length === 0 && !option && (
                           <span className="tt-free">—</span>
                         )}
@@ -297,7 +371,7 @@ export default function TeacherSchedule({
                               setDetail(null);
                             }}
                             aria-expanded={isOpen}
-                            title={`Option #${option.rank} · ${
+                            title={`${option.tier} · option #${option.rank} · ${
                               option.kind === "swap" ? "Swap" : "Move"
                             } · impact ${
                               option.soft_delta >= 0 ? "+" : ""
@@ -309,6 +383,30 @@ export default function TeacherSchedule({
                             )}. View details`}
                           >
                             <InfoIcon />
+                          </button>
+                        )}
+
+                        {/* straight to it: applies this option without
+                            opening the details first */}
+                        {option && (
+                          <button
+                            type="button"
+                            className="tt-swap"
+                            onClick={() => editor.applyOption(option)}
+                            disabled={editor.busy}
+                            title={`${
+                              option.kind === "swap"
+                                ? `Swap with ${option.partner?.subject ?? "this lesson"}`
+                                : "Move here"
+                            } now · impact ${
+                              option.soft_delta >= 0 ? "+" : ""
+                            }${option.soft_delta.toFixed(2)}`}
+                          >
+                            {editor.busy
+                              ? "…"
+                              : option.kind === "swap"
+                                ? "Swap"
+                                : "Move"}
                           </button>
                         )}
 
@@ -334,6 +432,7 @@ export default function TeacherSchedule({
                             Edit
                           </button>
                         )}
+                        </div>
                       </td>
 
                       {index === lunchAfterIndex && (
@@ -388,6 +487,7 @@ export default function TeacherSchedule({
             <strong>
               #{openOption.rank} · {openOption.day} {openOption.period}
             </strong>
+            <span className="tier">{openOption.tier}</span>
             <span className={`badge badge--${openOption.kind}`}>
               {openOption.kind === "swap" ? "Swap" : "Move"}
             </span>
