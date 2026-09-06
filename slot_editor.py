@@ -104,6 +104,11 @@ class SlotEditor:
         self.genes = [list(slots) for slots in genes]
         self.baseline = evaluate(problem, self.genes)
 
+    def set_genes(self, genes: list) -> None:
+        """Replace the whole timetable, e.g. when restoring a version."""
+        self.genes = [list(slots) for slots in genes]
+        self.baseline = evaluate(self.problem, self.genes)
+
     # ------------------------------------------------------------- lookup
 
     def placements_at(self, teacher_id: str, day: str, period: str) -> list:
@@ -291,6 +296,14 @@ class SlotEditor:
                 "partner_unit_id": (
                     self.problem.units[change["partner_unit_index"]].unit_id
                     if change["kind"] == "swap" else None
+                ),
+            },
+            # the lesson being moved, so callers can label the change
+            "lesson": {
+                "unit_id": unit.unit_id,
+                "subject": unit.subject_key,
+                "target": ", ".join(
+                    self.problem.class_ids[c] for c in unit.class_indexes
                 ),
             },
             "kind": change["kind"],

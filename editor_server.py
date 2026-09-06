@@ -29,6 +29,7 @@ import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from slot_editor import load_editor
+from version_history import VersionHistory
 
 SOLUTION_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "timetable_solution.json"
@@ -36,7 +37,26 @@ SOLUTION_PATH = os.path.join(
 
 # One editor, one lock: applies are serialised so two callers cannot both
 # write from the same starting timetable.
-STATE = {"editor": None, "lock": threading.Lock(), "applied": 0}
+STATE = {
+    "editor": None,
+    "history": None,
+    "lock": threading.Lock(),
+    "applied": 0,
+}
+
+
+def change_label(applied: dict) -> str:
+    """Short, readable name for the version an edit produces."""
+    lesson = applied.get("lesson") or {}
+    move = applied.get("change", {})
+    return "%s %s: %s %s to %s %s" % (
+        lesson.get("subject", "Lesson"),
+        lesson.get("target", ""),
+        move.get("from", {}).get("day", ""),
+        move.get("from", {}).get("period", ""),
+        move.get("to", {}).get("day", ""),
+        move.get("to", {}).get("period", ""),
+    )
 
 
 def save_solution(editor) -> None:
@@ -86,10 +106,15 @@ class Handler(BaseHTTPRequestHandler):
                 "hard_violations": editor.baseline.hard_total,
                 "soft_total": round(editor.baseline.soft_total, 2),
                 "changes_applied": STATE["applied"],
+                "versions": len(STATE["history"].versions),
+                "current_version": STATE["history"].current_id,
             })
 
         if self.path == "/api/solution":
             return self._send(200, editor.solution())
+
+        if self.path == "/api/versions":
+            return self._send(200, STATE["history"].to_dict())
 
         return self._send(404, {"error": "no such endpoint: %s" % self.path})
 
@@ -134,6 +159,9 @@ class Handler(BaseHTTPRequestHandler):
             if self.path == "/api/apply":
                 with STATE["lock"]:
                     applied = editor.apply(body["change"])
+                    # every edit becomes a version you can come back to
+                    STATE["history"].record(change_label(applied),
+                                            applied.get("change"))
                     save_solution(editor)
                     STATE["applied"] += 1
 
@@ -144,6 +172,22 @@ class Handler(BaseHTTPRequestHandler):
                         "soft_total": round(editor.baseline.soft_total, 2),
                     },
                     "solution": editor.solution(),
+                    "history": STATE["history"].to_dict(),
+                })
+
+            if self.path == "/api/versions/restore":
+                with STATE["lock"]:
+                    version = STATE["history"].restore(int(body["version_id"]))
+                    save_solution(editor)
+
+                return self._send(200, {
+                    "restored": version,
+                    "report": {
+                        "hard_total": editor.baseline.hard_total,
+                        "soft_total": round(editor.baseline.soft_total, 2),
+                    },
+                    "solution": editor.solution(),
+                    "history": STATE["history"].to_dict(),
                 })
 
         except KeyError as error:
@@ -165,6 +209,7 @@ def main() -> int:
     print("Loading timetable...")
     STATE["editor"] = load_editor()
     editor = STATE["editor"]
+    STATE["history"] = VersionHistory(editor)
     print("  %d classes, %d teachers, %d hard violations, soft %.2f"
           % (len(editor.problem.classes), len(editor.problem.teachers),
              editor.baseline.hard_total, editor.baseline.soft_total))

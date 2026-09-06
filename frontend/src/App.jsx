@@ -5,6 +5,7 @@ import ClassTimetable from "./components/ClassTimetable";
 import EditDialog from "./components/EditDialog";
 import SubjectRequirements from "./components/SubjectRequirements";
 import TeacherSchedule from "./components/TeacherSchedule";
+import VersionList from "./components/VersionList";
 import { editorApi } from "./api/editorApi";
 import { loadSolution, normalizeSolution } from "./api/solutionApi";
 import { optionKey } from "./components/TeacherSchedule";
@@ -31,6 +32,9 @@ export default function App() {
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState(null);
 
+  // Version history: every applied edit adds one, and any can be restored.
+  const [history, setHistory] = useState(null);
+
   // The timetable comes from the editor service when it is running, and
   // from the bundled file otherwise (read-only).
   useEffect(() => {
@@ -46,6 +50,16 @@ export default function App() {
         a.name.localeCompare(b.name)
       )[0];
       setSelectedTeacher(first?.id ?? "");
+
+      // the version list is on show from the start, not just while editing
+      if (isLive) {
+        editorApi
+          .versions()
+          .then((data) => {
+            if (!cancelled) setHistory(data);
+          })
+          .catch(() => {});
+      }
     });
 
     return () => {
@@ -135,12 +149,36 @@ export default function App() {
       try {
         const result = await editorApi.apply(option.change);
         setSolution(normalizeSolution(result.solution));
+        if (result.history) setHistory(result.history);
         closeEdit();
         setNotice(
-          `Applied: ${result.applied.summary} — timetable now ${result.report.hard_total} violations, soft ${result.report.soft_total.toFixed(2)}.`
+          `Applied: ${result.applied.summary} — saved as v${result.history?.current_id ?? "?"}. Timetable now ${result.report.hard_total} violations, soft ${result.report.soft_total.toFixed(2)}.`
         );
       } catch (error) {
         setActionError(error.message);
+      } finally {
+        setBusy(false);
+      }
+    },
+    [closeEdit]
+  );
+
+  // Switching version replaces the whole timetable, so every view follows.
+  const restoreVersion = useCallback(
+    async (versionId) => {
+      setBusy(true);
+      setActionError(null);
+      try {
+        const result = await editorApi.restoreVersion(versionId);
+        setSolution(normalizeSolution(result.solution));
+        setHistory(result.history);
+        closeEdit();
+        setNotice(
+          `Switched to v${result.restored.id} — ${result.restored.label}. Soft ${result.report.soft_total.toFixed(2)}, ${result.report.hard_total} violations.`
+        );
+      } catch (error) {
+        setActionError(error.message);
+        setNotice(null);
       } finally {
         setBusy(false);
       }
@@ -246,8 +284,19 @@ export default function App() {
         </div>
       </header>
 
-      <main className="content">
+      <div className="shell">
+        {/* always on show, in the space beside the timetable */}
+        <VersionList
+          history={history}
+          onRestore={restoreVersion}
+          busy={busy}
+          live={live}
+        />
+
+        <main className="content">
         <ClashStatus validation={validation} softReport={solution.softReport} />
+
+        {actionError && <p className="notice notice--bad">{actionError}</p>}
 
         {notice && (
           <p className="notice notice--ok">
@@ -294,7 +343,8 @@ export default function App() {
             editor={editor}
           />
         )}
-      </main>
+        </main>
+      </div>
 
       {showAllOptions && (
         <EditDialog editor={editor} onClose={() => setShowAllOptions(false)} />

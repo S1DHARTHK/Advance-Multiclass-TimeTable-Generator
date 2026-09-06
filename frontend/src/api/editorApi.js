@@ -51,4 +51,14 @@ export const editorApi = {
 
   /** Commit a change. Refused server-side if it breaks a hard constraint. */
   apply: (change) => request("/apply", { change }),
+
+  /** Every saved version of the timetable, plus which one is current. */
+  versions: () => request("/versions"),
+
+  /**
+   * Switch the timetable to an existing version. Nothing is deleted, so
+   * this works in both directions - back to an older one, or forward again.
+   */
+  restoreVersion: (versionId) =>
+    request("/versions/restore", { version_id: versionId }),
 };

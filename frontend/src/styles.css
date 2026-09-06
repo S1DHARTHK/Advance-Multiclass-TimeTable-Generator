@@ -1631,3 +1631,180 @@ body {
 .tt-swapinfo__free {
   font-style: italic;
 }
+
+/* ===========================================================================
+   Version history rail, beside the timetable
+   =========================================================================== */
+
+.shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.shell > .content {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.versions {
+  flex: 0 0 232px;
+  width: 232px;
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.versions__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.versions__title {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.versions__count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.versions__note {
+  margin: 8px 0 10px;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.versions__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.version {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fff;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.version:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: #f8f7ff;
+}
+
+.version:disabled {
+  cursor: default;
+}
+
+.version.is-current {
+  border-color: var(--accent);
+  background: #f5f3ff;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.version__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.version__id {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.version__badge {
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.version__time {
+  margin-left: auto;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.version__label {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.version__stats {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.version__bad {
+  color: var(--bad);
+  font-weight: 700;
+}
+
+.notice--bad {
+  border-color: #f3c2c2;
+  background: #fff8f8;
+  color: var(--bad);
+  font-weight: 600;
+}
+
+/* the rail needs room: use the space either side of the page on wide screens */
+@media (min-width: 1100px) {
+  .page {
+    max-width: 1340px;
+  }
+}
+
+/* too narrow for a rail: put the history above the timetable instead */
+@media (max-width: 900px) {
+  .shell {
+    flex-direction: column;
+    /* stretch, or the content shrink-wraps its wide table and pushes the
+       page sideways instead of scrolling inside its own box */
+    align-items: stretch;
+  }
+
+  .versions {
+    flex: 1 1 auto;
+    width: 100%;
+    position: static;
+    max-height: 260px;
+  }
+}
