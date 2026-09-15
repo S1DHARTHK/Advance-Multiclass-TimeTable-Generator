@@ -414,19 +414,25 @@ The system currently runs on **synthetic data** from [`synthetic_data.py`](synth
 
 ### Relationships
 
+### Relationships
+
 ```mermaid
 erDiagram
     SCHOOL_CLASS ||--o{ STUDENT : has
     SCHOOL_CLASS ||--o{ CLASS_SUBJECT : requires
     SUBJECT ||--o{ CLASS_SUBJECT : is_required_as
+
     TEACHER ||--o{ TEACHER_SUBJECT : is_qualified_for
     SUBJECT ||--o{ TEACHER_SUBJECT : can_be_taught_by
+
     LANGUAGE_GROUP }o--o{ SCHOOL_CLASS : draws_students_from
     STUDENT }o--|| LANGUAGE_GROUP : belongs_to
-    TEACHING_ASSIGNMENT }o--|| TEACHER : given_to
+
+    TEACHING_ASSIGNMENT }o--|| TEACHER : assigned_to
     TEACHING_ASSIGNMENT }o--o| SCHOOL_CLASS : targets
     TEACHING_ASSIGNMENT }o--o| LANGUAGE_GROUP : targets
-    SCHOOL_CLASS }o--|| TEACHER : class_teacher
+
+    SCHOOL_CLASS }o--|| TEACHER : has_as_class_teacher
 ```
 
 ### Weekly requirement per stream
