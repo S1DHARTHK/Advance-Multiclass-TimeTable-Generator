@@ -418,15 +418,15 @@ The system currently runs on **synthetic data** from [`synthetic_data.py`](synth
 erDiagram
     CLASS ||--o{ STUDENT : has
     CLASS ||--o{ CLASS_SUBJECT : requires
-    SUBJECT ||--o{ CLASS_SUBJECT : "is required as"
-    TEACHER ||--o{ TEACHER_SUBJECT : "is qualified for"
-    SUBJECT ||--o{ TEACHER_SUBJECT : "can be taught by"
-    LANGUAGE_GROUP }o--o{ CLASS : "draws students from"
-    STUDENT }o--|| LANGUAGE_GROUP : "belongs to"
-    TEACHING_ASSIGNMENT }o--|| TEACHER : "given to"
+    SUBJECT ||--o{ CLASS_SUBJECT : is_required_as
+    TEACHER ||--o{ TEACHER_SUBJECT : is_qualified_for
+    SUBJECT ||--o{ TEACHER_SUBJECT : can_be_taught_by
+    LANGUAGE_GROUP }o--o{ CLASS : draws_students_from
+    STUDENT }o--|| LANGUAGE_GROUP : belongs_to
+    TEACHING_ASSIGNMENT }o--|| TEACHER : given_to
     TEACHING_ASSIGNMENT }o--o| CLASS : targets
     TEACHING_ASSIGNMENT }o--o| LANGUAGE_GROUP : targets
-    CLASS }o--|| TEACHER : "class teacher"
+    CLASS }o--|| TEACHER : class_teacher
 ```
 
 ### Weekly requirement per stream
